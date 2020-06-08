@@ -1,2 +1,4 @@
 # ProjetsData
-Projets personnels et tests en data
+Personal projects on data analysis
+- ML course assigments in MATLAB by Andrew Ng
+- Kaggle notebooks
