@@ -15,13 +15,13 @@
 
 ## EDA and Cleaning
 
-# Fund raisers for start ups from across the globe
+#### Fund raisers for start ups from across the globe
 
 <p align="center">
   <img src="srcs/backers_map.png" alt="map of the backers worldwide/made with tableau" />  
 </p>
 
-# Category-wise distribution
+#### Category-wise distribution
 Ranking of the most backed categories
 <p align="center">
   <img src="srcs/main_categories_by_backers.png" alt="ranking of the most backed categories/made with seaborn" />  
@@ -30,6 +30,11 @@ Ranking of the most backed categories
 Ranking of the most launched categories
 <p align="center">
   <img src="srcs/main_categories_by_nb_of_projects.png" alt="ranking of the most launched categories/made with tableau" />  
+</p>
+
+Top 50 of the most launched sub-categories
+<p align="center">
+  <img src="srcs/top 50 sub-categories.png" alt="top 50 categories/made with tableau" />  
 </p>
 
 ## Regression Modelling
