@@ -39,22 +39,22 @@ Top 50 of the most launched sub-categories
 
 Funds raised (Sum) by category and sub category
 <p align="center">
-  <img src="funds_raised_sum_bubbles.png" alt="/made with tableau" />  
+  <img src="srcs/funds_raised_sum_bubbles.png" alt="Funds raised by sub-categories /made with tableau" />  
 </p>
 
 Funds raised (Sum) by main category
 <p align="center">
-  <img src="funds_raised_sum_main_category_bubbles.png" alt="/made with tableau" />  
+  <img src="srcs/funds_raised_sum_main_category_bubbles.png" alt="Funds raised by main categories/made with tableau" />  
 </p>
 
 Funds raised (Average) by main category
 <p align="center">
-  <img src="funds_raised_average_bubbles.png" alt="/made with tableau" />  
+  <img src="srcs/funds_raised_average_bubbles.png" alt="funds raised average bubbles/made with tableau" />  
 </p>
 
 Top 5 sub-categories raised in Design, Games and Technology
 <p align="center">
-  <img src="Funds_raised_top5.png" alt="/made with tableau" />  
+  <img src="srcs/Funds_raised_top5.png" alt="Funds raised in Design, Games and Technology/made with tableau" />  
 </p>
 
 
