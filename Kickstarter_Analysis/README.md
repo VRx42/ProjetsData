@@ -57,6 +57,16 @@ Top 5 sub-categories raised in Design, Games and Technology
   <img src="srcs/Funds_raised_top5.png" alt="Funds raised in Design, Games and Technology/made with tableau" />  
 </p>
 
+Fund Raising status in history of Kickstarter
+<p align="center">
+  <img src="srcs/fund_raising_status.png" alt="Status of total projects/made with tableau" />  
+</p>
+
+Average length of campaigns (nb of days) that have seen different fates
+<p align="center">
+  <img src="srcs/campaign_days_by_states.png" alt="campaign days by state/made with tableau" />  
+</p>
+
 
 ## Regression Modelling
 
