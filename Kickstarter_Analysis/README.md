@@ -67,6 +67,19 @@ Average length of campaigns (nb of days) that have seen different fates
   <img src="srcs/campaign_days_by_state.png" alt="campaign days by state/made with tableau" />  
 </p>
 
+Top 15 projects
+<p align="center">
+  <img src="srcs/Top_15_fundraisers.png" alt="Top_15_fundraisers/made with tableau" />  
+</p>
+
+Top 50 projects by highest backers
+<p align="center">
+  <img src="srcs/Top_50_by_backers.png" alt="Top_15_fundraisers/made with tableau" />  
+</p>
+
+
+
+
 
 ## Regression Modelling
 

@@ -293,11 +293,6 @@
         </metadata-records>
       </connection>
       <aliases enabled='yes' />
-      <column caption='index_names' datatype='integer' name='[Calculation_1054686804872146948]' role='measure' type='ordinal'>
-        <calculation class='tableau' formula='INDEX()'>
-          <table-calc ordering-type='Rows' />
-        </calculation>
-      </column>
       <column caption='Rank' datatype='integer' name='[Calculation_815714549250977792]' role='measure' type='ordinal'>
         <calculation class='tableau' formula='INDEX()'>
           <table-calc ordering-type='Rows' />
@@ -325,6 +320,26 @@
       <column-instance column='[category]' derivation='None' name='[none:category:nk]' pivot='key' type='nominal' />
       <column-instance column='[main_category]' derivation='None' name='[none:main_category:nk]' pivot='key' type='nominal' />
       <column-instance column='[state]' derivation='None' name='[none:state:nk]' pivot='key' type='nominal' />
+      <group caption='Top N and Bottom N' delimiter=',' name='[Set 1]' name-style='unqualified'>
+        <groupfilter function='union'>
+          <groupfilter field='[Top N by Parameter (copy)]' function='reference' />
+          <groupfilter field='[Top N by Parameter]' function='reference' />
+        </groupfilter>
+      </group>
+      <group caption='Bottom N by Parameter' name='[Top N by Parameter (copy)]' name-style='unqualified' user:ui-builder='filter-group'>
+        <groupfilter count='[Parameters].[Top N (copy)_785596727145508866]' end='bottom' function='end' units='records' user:ui-marker='end' user:ui-top-by-field='true'>
+          <groupfilter direction='DESC' expression='SUM([pledged])' function='order' user:ui-marker='order'>
+            <groupfilter function='level-members' level='[name]' user:ui-manual-selection='true' user:ui-manual-selection-all-when-empty='true' user:ui-manual-selection-is-empty='true' user:ui-marker='enumerate' />
+          </groupfilter>
+        </groupfilter>
+      </group>
+      <group caption='Top N by Parameter' name='[Top N by Parameter]' name-style='unqualified' user:ui-builder='filter-group'>
+        <groupfilter count='[Parameters].[Parameter 1]' end='top' function='end' units='records' user:ui-marker='end' user:ui-top-by-field='true'>
+          <groupfilter direction='DESC' expression='SUM([pledged])' function='order' user:ui-marker='order'>
+            <groupfilter function='level-members' level='[name]' user:ui-manual-selection='true' user:ui-manual-selection-all-when-empty='true' user:ui-manual-selection-is-empty='true' user:ui-marker='enumerate' />
+          </groupfilter>
+        </groupfilter>
+      </group>
       <drill-paths>
         <drill-path name='country, state'>
           <field>[country]</field>
@@ -884,6 +899,16 @@
       <semantic-values>
         <semantic-value key='[Country].[Name]' value='&quot;France&quot;' />
       </semantic-values>
+      <datasource-dependencies datasource='Parameters'>
+        <column caption='Top N' datatype='integer' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='27'>
+          <calculation class='tableau' formula='27' />
+          <range granularity='1' max='30' min='1' />
+        </column>
+        <column caption='Bottom N' datatype='integer' name='[Top N (copy)_785596727145508866]' param-domain-type='range' role='measure' type='quantitative' value='5'>
+          <calculation class='tableau' formula='5' />
+          <range granularity='1' max='30' min='1' />
+        </column>
+      </datasource-dependencies>
       <_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
         <objects>
           <object caption='Données migrées' id='Migrated Data'>
@@ -911,6 +936,17 @@
           </object>
         </objects>
       </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+    </datasource>
+    <datasource hasconnection='false' inline='true' name='Parameters' version='18.1'>
+      <aliases enabled='yes' />
+      <column caption='Top N' datatype='integer' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='27'>
+        <calculation class='tableau' formula='27' />
+        <range granularity='1' max='30' min='1' />
+      </column>
+      <column caption='Bottom N' datatype='integer' name='[Top N (copy)_785596727145508866]' param-domain-type='range' role='measure' type='quantitative' value='5'>
+        <calculation class='tableau' formula='5' />
+        <range granularity='1' max='30' min='1' />
+      </column>
     </datasource>
     <datasource caption='campaign_duration_days' inline='true' name='federated.0fgk2cb1tgx4p715nbqqa1i7g77x' version='18.1'>
       <connection class='federated'>
@@ -1476,21 +1512,119 @@
         <view>
           <datasources>
             <datasource caption='ks-projects-201801' name='federated.1smwlxm14xw573196j06v1k44rwp' />
+            <datasource name='Parameters' />
           </datasources>
-          <datasource-dependencies datasource='federated.1smwlxm14xw573196j06v1k44rwp'>
-            <column caption='index_names' datatype='integer' name='[Calculation_1054686804872146948]' role='measure' type='ordinal'>
-              <calculation class='tableau' formula='INDEX()'>
-                <table-calc ordering-type='Rows' />
-              </calculation>
+          <datasource-dependencies datasource='Parameters'>
+            <column caption='Top N' datatype='integer' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='27'>
+              <calculation class='tableau' formula='27' />
+              <range granularity='1' max='30' min='1' />
             </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource='federated.1smwlxm14xw573196j06v1k44rwp'>
+            <column caption='Main Category' datatype='string' name='[main_category]' role='dimension' type='nominal' />
             <column caption='Name' datatype='string' name='[name]' role='dimension' type='nominal' />
+            <column-instance column='[main_category]' derivation='None' name='[none:main_category:nk]' pivot='key' type='nominal' />
             <column-instance column='[name]' derivation='None' name='[none:name:nk]' pivot='key' type='nominal' />
             <column caption='Pledged' datatype='real' name='[pledged]' role='measure' type='quantitative' />
             <column-instance column='[pledged]' derivation='Sum' name='[sum:pledged:qk]' pivot='key' type='quantitative' />
-            <column-instance column='[Calculation_1054686804872146948]' derivation='User' name='[usr:Calculation_1054686804872146948:ok]' pivot='key' type='ordinal'>
-              <table-calc ordering-type='Rows' />
-            </column-instance>
           </datasource-dependencies>
+          <filter class='categorical' column='[federated.1smwlxm14xw573196j06v1k44rwp].[Top N by Parameter]' />
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.1smwlxm14xw573196j06v1k44rwp].[none:name:nk]' direction='DESC' measure-to-sort-by='[federated.1smwlxm14xw573196j06v1k44rwp].[sum:pledged:qk]' shelf='columns' />
+          </shelf-sorts>
+          <slices>
+            <column>[federated.1smwlxm14xw573196j06v1k44rwp].[Top N by Parameter]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='header'>
+            <format attr='height-header' value='28' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='text-orientation' field='[federated.1smwlxm14xw573196j06v1k44rwp].[none:name:nk]' value='-90' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='in-tooltip' field='[federated.1smwlxm14xw573196j06v1k44rwp].[none:name:nk]' value='false' />
+          </style-rule>
+          <style-rule element='map-layer'>
+            <format attr='enabled' id='b01002_001e' value='false' />
+            <format attr='enabled' id='b01002_002e' value='false' />
+            <format attr='enabled' id='b01002_003e' value='false' />
+            <format attr='enabled' id='dp02_0001e' value='false' />
+            <format attr='enabled' id='dp02_0015e' value='false' />
+            <format attr='enabled' id='dp03_0027e_plus_dp03_0029e' value='false' />
+            <format attr='enabled' id='dp03_0028e' value='false' />
+            <format attr='enabled' id='dp03_0030e_plus_dp03_0031e' value='false' />
+            <format attr='enabled' id='dp03_0062e' value='false' />
+            <format attr='enabled' id='dp03_0088e' value='false' />
+            <format attr='enabled' id='dp04_0001e' value='false' />
+            <format attr='enabled' id='dp04_0046e' value='false' />
+            <format attr='enabled' id='dp04_0047e' value='false' />
+            <format attr='enabled' id='dp04_0089e' value='false' />
+            <format attr='enabled' id='dp05_0001e' value='false' />
+            <format attr='enabled' id='dp05_0002e_div_dp05_0003e' value='false' />
+            <format attr='enabled' id='dp05_0032e' value='false' />
+            <format attr='enabled' id='dp05_0033e' value='false' />
+            <format attr='enabled' id='dp05_0034e' value='false' />
+            <format attr='enabled' id='dp05_0039e' value='false' />
+            <format attr='enabled' id='dp05_0047e' value='false' />
+            <format attr='enabled' id='dp05_0053e' value='false' />
+            <format attr='enabled' id='dp05_0066e' value='false' />
+            <format attr='enabled' id='dp05_0077e' value='false' />
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0' />
+            <format attr='map-style' value='normal' />
+          </style-rule>
+          <style-rule element='map-data-layer'>
+            <format attr='palette' value='tableau-map-blue-green' />
+            <format attr='geo-area-type' value='State' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='6' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1smwlxm14xw573196j06v1k44rwp].[none:main_category:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1smwlxm14xw573196j06v1k44rwp].[sum:pledged:qk]</rows>
+        <cols>([federated.1smwlxm14xw573196j06v1k44rwp].[none:name:nk] / [federated.1smwlxm14xw573196j06v1k44rwp].[none:main_category:nk])</cols>
+      </table>
+      <simple-id uuid='{7128AC18-BF60-41C1-B674-E64A4B8C85E2}' />
+    </worksheet>
+    <worksheet name='Top_50_projects_by_backers'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='ks-projects-201801' name='federated.1smwlxm14xw573196j06v1k44rwp' />
+            <datasource name='Parameters' />
+          </datasources>
+          <datasource-dependencies datasource='Parameters'>
+            <column caption='Top N' datatype='integer' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='27'>
+              <calculation class='tableau' formula='27' />
+              <range granularity='1' max='30' min='1' />
+            </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource='federated.1smwlxm14xw573196j06v1k44rwp'>
+            <column caption='Name' datatype='string' name='[name]' role='dimension' type='nominal' />
+            <column caption='Pledged' datatype='real' name='[pledged]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1smwlxm14xw573196j06v1k44rwp].[Top N by Parameter]' />
+          <slices>
+            <column>[federated.1smwlxm14xw573196j06v1k44rwp].[Top N by Parameter]</column>
+          </slices>
           <aggregation value='true' />
         </view>
         <style />
@@ -1502,10 +1636,10 @@
             <mark class='Automatic' />
           </pane>
         </panes>
-        <rows>[federated.1smwlxm14xw573196j06v1k44rwp].[sum:pledged:qk]</rows>
-        <cols>([federated.1smwlxm14xw573196j06v1k44rwp].[none:name:nk] / [federated.1smwlxm14xw573196j06v1k44rwp].[usr:Calculation_1054686804872146948:ok])</cols>
+        <rows />
+        <cols />
       </table>
-      <simple-id uuid='{7128AC18-BF60-41C1-B674-E64A4B8C85E2}' />
+      <simple-id uuid='{0EAB39AD-5B46-48E4-AF08-096D49F75BBA}' />
     </worksheet>
     <worksheet name='backers_map'>
       <layout-options>
@@ -1885,7 +2019,7 @@
       <simple-id uuid='{25F1C43D-D836-4E64-BB8E-59CC001C9A27}' />
     </dashboard>
   </dashboards>
-  <windows source-height='51'>
+  <windows source-height='48'>
     <window class='worksheet' name='backers_map' tab-color='#4f779a'>
       <cards>
         <edge name='left'>
@@ -2182,7 +2316,7 @@
       </cards>
       <simple-id uuid='{874CE12E-6350-4464-B06B-AEC7D9E38863}' />
     </window>
-    <window class='worksheet' maximized='true' name='Top_15_fundraisers' tab-color='#17927d'>
+    <window class='worksheet' name='Top_15_fundraisers' tab-color='#17927d'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -2202,8 +2336,42 @@
             <card type='title' />
           </strip>
         </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='6' param='[federated.1smwlxm14xw573196j06v1k44rwp].[none:main_category:nk]' type='color' />
+            <card mode='slider' param='[Parameters].[Parameter 1]' type='parameter' />
+          </strip>
+        </edge>
       </cards>
       <simple-id uuid='{1788828E-1E93-418C-9F66-5580500C06C0}' />
+    </window>
+    <window class='worksheet' maximized='true' name='Top_50_projects_by_backers' tab-color='#17927d'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card mode='slider' param='[Parameters].[Parameter 1]' type='parameter' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{EBC6EAF6-A5AA-4EDD-BC62-501B7F7916F5}' />
     </window>
   </windows>
 </workbook>
