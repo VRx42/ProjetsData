@@ -74,7 +74,7 @@ Top 15 projects
 
 Top 50 projects by highest backers
 <p align="center">
-  <img src="srcs/Top_50_by_backers.png" alt="Top_15_fundraisers/made with tableau" />  
+  <img src="srcs/Top_50_by_backers.png" alt="Top_50_by_backers/made with tableau" />  
 </p>
 
 
