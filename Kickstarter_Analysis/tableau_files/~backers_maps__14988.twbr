@@ -1,0 +1,1819 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20202.20.0614.2338                               -->
+<workbook source-build='2020.2.2 (20202.20.0614.2338)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AutoCreateAndUpdateDSDPhoneLayouts />
+    <IntuitiveSorting />
+    <IntuitiveSorting_SP2 />
+    <MapboxVectorStylesAndLayers />
+    <_.fcp.MarkAnimation.true...MarkAnimation />
+    <_.fcp.ObjectModelEncapsulateLegacy.true...ObjectModelEncapsulateLegacy />
+    <_.fcp.ObjectModelTableType.true...ObjectModelTableType />
+    <_.fcp.SchemaViewerObjectModel.true...SchemaViewerObjectModel />
+    <_.fcp.SetMembershipControl.true...SetMembershipControl />
+    <SheetIdentifierTracking />
+    <SortTagCleanup />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <style-theme name='classic' />
+  <style>
+    <_.fcp.MarkAnimation.true...style-rule element='animation'>
+      <format attr='animation-on' value='ao-off' />
+    </_.fcp.MarkAnimation.true...style-rule>
+  </style>
+  <datasources>
+    <datasource caption='ks-projects-201801' inline='true' name='federated.1smwlxm14xw573196j06v1k44rwp' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='ks-projects-201801' name='textscan.01nqfu61m2nq1l1bn1vww0z1gahj'>
+            <connection class='textscan' directory='C:/Users/vicro/Documents/GitHub/ProjetsData/Kickstarter_Analysis' filename='ks-projects-201801.csv' password='' port='0' server='' />
+          </named-connection>
+        </named-connections>
+        <_.fcp.ObjectModelEncapsulateLegacy.false...relation connection='textscan.01nqfu61m2nq1l1bn1vww0z1gahj' name='ks-projects-201801.csv' table='[ks-projects-201801#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+            <column datatype='integer' name='ID' ordinal='0' />
+            <column datatype='string' name='name' ordinal='1' />
+            <column datatype='string' name='category' ordinal='2' />
+            <column datatype='string' name='main_category' ordinal='3' />
+            <column datatype='string' name='currency' ordinal='4' />
+            <column datatype='date' name='deadline' ordinal='5' />
+            <column datatype='real' name='goal' ordinal='6' />
+            <column datatype='datetime' name='launched' ordinal='7' />
+            <column datatype='real' name='pledged' ordinal='8' />
+            <column datatype='integer' name='state' ordinal='9' />
+            <column datatype='integer' name='backers' ordinal='10' />
+            <column datatype='string' name='country' ordinal='11' />
+            <column datatype='real' name='usd pledged' ordinal='12' />
+            <column datatype='real' name='usd_pledged_real' ordinal='13' />
+            <column datatype='real' name='usd_goal_real' ordinal='14' />
+          </columns>
+        </_.fcp.ObjectModelEncapsulateLegacy.false...relation>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...relation connection='textscan.01nqfu61m2nq1l1bn1vww0z1gahj' name='ks-projects-201801.csv' table='[ks-projects-201801#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+            <column datatype='integer' name='ID' ordinal='0' />
+            <column datatype='string' name='name' ordinal='1' />
+            <column datatype='string' name='category' ordinal='2' />
+            <column datatype='string' name='main_category' ordinal='3' />
+            <column datatype='string' name='currency' ordinal='4' />
+            <column datatype='date' name='deadline' ordinal='5' />
+            <column datatype='real' name='goal' ordinal='6' />
+            <column datatype='datetime' name='launched' ordinal='7' />
+            <column datatype='real' name='pledged' ordinal='8' />
+            <column datatype='integer' name='state' ordinal='9' />
+            <column datatype='integer' name='backers' ordinal='10' />
+            <column datatype='string' name='country' ordinal='11' />
+            <column datatype='real' name='usd pledged' ordinal='12' />
+            <column datatype='real' name='usd_pledged_real' ordinal='13' />
+            <column datatype='real' name='usd_goal_real' ordinal='14' />
+          </columns>
+        </_.fcp.ObjectModelEncapsulateLegacy.true...relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[ks-projects-201801.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[ID]</local-name>
+            <parent-name>[ks-projects-201801.csv]</parent-name>
+            <remote-alias>ID</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Migrated Data]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>name</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[name]</local-name>
+            <parent-name>[ks-projects-201801.csv]</parent-name>
+            <remote-alias>name</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Migrated Data]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>category</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[category]</local-name>
+            <parent-name>[ks-projects-201801.csv]</parent-name>
+            <remote-alias>category</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Migrated Data]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>main_category</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[main_category]</local-name>
+            <parent-name>[ks-projects-201801.csv]</parent-name>
+            <remote-alias>main_category</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Migrated Data]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>currency</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[currency]</local-name>
+            <parent-name>[ks-projects-201801.csv]</parent-name>
+            <remote-alias>currency</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Migrated Data]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>deadline</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[deadline]</local-name>
+            <parent-name>[ks-projects-201801.csv]</parent-name>
+            <remote-alias>deadline</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Migrated Data]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>goal</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[goal]</local-name>
+            <parent-name>[ks-projects-201801.csv]</parent-name>
+            <remote-alias>goal</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Migrated Data]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>launched</remote-name>
+            <remote-type>135</remote-type>
+            <local-name>[launched]</local-name>
+            <parent-name>[ks-projects-201801.csv]</parent-name>
+            <remote-alias>launched</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Migrated Data]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>pledged</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[pledged]</local-name>
+            <parent-name>[ks-projects-201801.csv]</parent-name>
+            <remote-alias>pledged</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Migrated Data]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>state</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[state]</local-name>
+            <parent-name>[ks-projects-201801.csv]</parent-name>
+            <remote-alias>state</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Migrated Data]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>backers</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[backers]</local-name>
+            <parent-name>[ks-projects-201801.csv]</parent-name>
+            <remote-alias>backers</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Migrated Data]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>country</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[country]</local-name>
+            <parent-name>[ks-projects-201801.csv]</parent-name>
+            <remote-alias>country</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Migrated Data]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>usd pledged</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[usd pledged]</local-name>
+            <parent-name>[ks-projects-201801.csv]</parent-name>
+            <remote-alias>usd pledged</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Migrated Data]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>usd_pledged_real</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[usd_pledged_real]</local-name>
+            <parent-name>[ks-projects-201801.csv]</parent-name>
+            <remote-alias>usd_pledged_real</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Migrated Data]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>usd_goal_real</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[usd_goal_real]</local-name>
+            <parent-name>[ks-projects-201801.csv]</parent-name>
+            <remote-alias>usd_goal_real</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Migrated Data]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Rank' datatype='integer' name='[Calculation_815714549250977792]' role='measure' type='ordinal'>
+        <calculation class='tableau' formula='INDEX()'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column datatype='integer' name='[ID]' role='dimension' type='ordinal' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <_.fcp.ObjectModelTableType.true...column caption='Données migrées' datatype='table' name='[__tableau_internal_object_id__].[Migrated Data]' role='measure' type='quantitative' />
+      <column caption='Backers' datatype='integer' name='[backers]' role='measure' type='quantitative' />
+      <column caption='Category' datatype='string' name='[category]' role='dimension' type='nominal' />
+      <column caption='Country' datatype='string' name='[country]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+      <column caption='Currency' datatype='string' name='[currency]' role='dimension' type='nominal' />
+      <column caption='Deadline' datatype='date' name='[deadline]' role='dimension' type='ordinal' />
+      <column caption='Goal' datatype='real' name='[goal]' role='measure' type='quantitative' />
+      <column caption='Launched' datatype='datetime' name='[launched]' role='dimension' type='ordinal' />
+      <column caption='Main Category' datatype='string' name='[main_category]' role='dimension' type='nominal' />
+      <column caption='Name' datatype='string' name='[name]' role='dimension' type='nominal' />
+      <column caption='Pledged' datatype='real' name='[pledged]' role='measure' type='quantitative' />
+      <column aggregation='CountD' caption='State' datatype='integer' name='[state]' role='dimension' semantic-role='[State].[Name]' type='ordinal' />
+      <column caption='Usd Pledged' datatype='real' name='[usd pledged]' role='measure' type='quantitative' />
+      <column caption='Usd Goal Real' datatype='real' name='[usd_goal_real]' role='measure' type='quantitative' />
+      <column caption='Usd Pledged Real' datatype='real' name='[usd_pledged_real]' role='measure' type='quantitative' />
+      <column-instance column='[category]' derivation='None' name='[none:category:nk]' pivot='key' type='nominal' />
+      <column-instance column='[main_category]' derivation='None' name='[none:main_category:nk]' pivot='key' type='nominal' />
+      <drill-paths>
+        <drill-path name='country, state'>
+          <field>[country]</field>
+        </drill-path>
+      </drill-paths>
+      <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[none:category:nk]' palette='green_10_0' type='palette'>
+            <map to='#17becf'>
+              <bucket>&quot;Ceramics&quot;</bucket>
+            </map>
+            <map to='#17becf'>
+              <bucket>&quot;DIY Electronics&quot;</bucket>
+            </map>
+            <map to='#17becf'>
+              <bucket>&quot;Kids&quot;</bucket>
+            </map>
+            <map to='#17becf'>
+              <bucket>&quot;Performance Art&quot;</bucket>
+            </map>
+            <map to='#17becf'>
+              <bucket>&quot;Quilts&quot;</bucket>
+            </map>
+            <map to='#17becf'>
+              <bucket>&quot;Zines&quot;</bucket>
+            </map>
+            <map to='#1f77b4'>
+              <bucket>&quot;3D Printing&quot;</bucket>
+            </map>
+            <map to='#1f77b4'>
+              <bucket>&quot;Childrenswear&quot;</bucket>
+            </map>
+            <map to='#1f77b4'>
+              <bucket>&quot;Footwear&quot;</bucket>
+            </map>
+            <map to='#1f77b4'>
+              <bucket>&quot;Latin&quot;</bucket>
+            </map>
+            <map to='#1f77b4'>
+              <bucket>&quot;Periodicals&quot;</bucket>
+            </map>
+            <map to='#1f77b4'>
+              <bucket>&quot;Radio &amp; Podcasts&quot;</bucket>
+            </map>
+            <map to='#1f77b4'>
+              <bucket>&quot;Textiles&quot;</bucket>
+            </map>
+            <map to='#24693d'>
+              <bucket>&quot;Webseries&quot;</bucket>
+            </map>
+            <map to='#246b3d'>
+              <bucket>&quot;Web&quot;</bucket>
+            </map>
+            <map to='#256e3d'>
+              <bucket>&quot;Video Games&quot;</bucket>
+            </map>
+            <map to='#25703d'>
+              <bucket>&quot;Theater&quot;</bucket>
+            </map>
+            <map to='#26733d'>
+              <bucket>&quot;Technology&quot;</bucket>
+            </map>
+            <map to='#27763d'>
+              <bucket>&quot;Tabletop Games&quot;</bucket>
+            </map>
+            <map to='#28783e'>
+              <bucket>&quot;Software&quot;</bucket>
+            </map>
+            <map to='#2a7b3f'>
+              <bucket>&quot;Shorts&quot;</bucket>
+            </map>
+            <map to='#2c7d40'>
+              <bucket>&quot;Rock&quot;</bucket>
+            </map>
+            <map to='#2ca02c'>
+              <bucket>&quot;Animals&quot;</bucket>
+            </map>
+            <map to='#2ca02c'>
+              <bucket>&quot;Events&quot;</bucket>
+            </map>
+            <map to='#2ca02c'>
+              <bucket>&quot;Glass&quot;</bucket>
+            </map>
+            <map to='#2ca02c'>
+              <bucket>&quot;Live Games&quot;</bucket>
+            </map>
+            <map to='#2ca02c'>
+              <bucket>&quot;Robots&quot;</bucket>
+            </map>
+            <map to='#2ca02c'>
+              <bucket>&quot;Typography&quot;</bucket>
+            </map>
+            <map to='#2d8042'>
+              <bucket>&quot;Restaurants&quot;</bucket>
+            </map>
+            <map to='#2f8243'>
+              <bucket>&quot;Publishing&quot;</bucket>
+            </map>
+            <map to='#338445'>
+              <bucket>&quot;Public Art&quot;</bucket>
+            </map>
+            <map to='#368747'>
+              <bucket>&quot;Product Design&quot;</bucket>
+            </map>
+            <map to='#3a8949'>
+              <bucket>&quot;Pop&quot;</bucket>
+            </map>
+            <map to='#3d8c4b'>
+              <bucket>&quot;Playing Cards&quot;</bucket>
+            </map>
+            <map to='#408e4d'>
+              <bucket>&quot;Photography&quot;</bucket>
+            </map>
+            <map to='#43914e'>
+              <bucket>&quot;Painting&quot;</bucket>
+            </map>
+            <map to='#46934e'>
+              <bucket>&quot;Nonfiction&quot;</bucket>
+            </map>
+            <map to='#49964f'>
+              <bucket>&quot;Narrative Film&quot;</bucket>
+            </map>
+            <map to='#4c9850'>
+              <bucket>&quot;Music&quot;</bucket>
+            </map>
+            <map to='#4f9a51'>
+              <bucket>&quot;Mixed Media&quot;</bucket>
+            </map>
+            <map to='#529d51'>
+              <bucket>&quot;Indie Rock&quot;</bucket>
+            </map>
+            <map to='#559f52'>
+              <bucket>&quot;Illustration&quot;</bucket>
+            </map>
+            <map to='#59a253'>
+              <bucket>&quot;Hip-Hop&quot;</bucket>
+            </map>
+            <map to='#5ca453'>
+              <bucket>&quot;Hardware&quot;</bucket>
+            </map>
+            <map to='#5fa755'>
+              <bucket>&quot;Games&quot;</bucket>
+            </map>
+            <map to='#61a957'>
+              <bucket>&quot;Gadgets&quot;</bucket>
+            </map>
+            <map to='#64ac59'>
+              <bucket>&quot;Food&quot;</bucket>
+            </map>
+            <map to='#66ae5b'>
+              <bucket>&quot;Film &amp; Video&quot;</bucket>
+            </map>
+            <map to='#69b15e'>
+              <bucket>&quot;Fiction&quot;</bucket>
+            </map>
+            <map to='#6bb360'>
+              <bucket>&quot;Fashion&quot;</bucket>
+            </map>
+            <map to='#6eb663'>
+              <bucket>&quot;Electronic Music&quot;</bucket>
+            </map>
+            <map to='#71b865'>
+              <bucket>&quot;Drinks&quot;</bucket>
+            </map>
+            <map to='#74bb68'>
+              <bucket>&quot;Drama&quot;</bucket>
+            </map>
+            <map to='#77be6b'>
+              <bucket>&quot;Documentary&quot;</bucket>
+            </map>
+            <map to='#7ac06d'>
+              <bucket>&quot;Design&quot;</bucket>
+            </map>
+            <map to='#7dc370'>
+              <bucket>&quot;Dance&quot;</bucket>
+            </map>
+            <map to='#7f7f7f'>
+              <bucket>&quot;Blues&quot;</bucket>
+            </map>
+            <map to='#7f7f7f'>
+              <bucket>&quot;Interactive Design&quot;</bucket>
+            </map>
+            <map to='#7f7f7f'>
+              <bucket>&quot;Nature&quot;</bucket>
+            </map>
+            <map to='#7f7f7f'>
+              <bucket>&quot;Spaces&quot;</bucket>
+            </map>
+            <map to='#7f7f7f'>
+              <bucket>&quot;Woodworking&quot;</bucket>
+            </map>
+            <map to='#80c673'>
+              <bucket>&quot;Crafts&quot;</bucket>
+            </map>
+            <map to='#83c875'>
+              <bucket>&quot;Country &amp; Folk&quot;</bucket>
+            </map>
+            <map to='#86cb78'>
+              <bucket>&quot;Comics&quot;</bucket>
+            </map>
+            <map to='#89cd7b'>
+              <bucket>&quot;Comic Books&quot;</bucket>
+            </map>
+            <map to='#8c564b'>
+              <bucket>&quot;Farmer&apos;s Markets&quot;</bucket>
+            </map>
+            <map to='#8c564b'>
+              <bucket>&quot;Pottery&quot;</bucket>
+            </map>
+            <map to='#8c564b'>
+              <bucket>&quot;Small Batch&quot;</bucket>
+            </map>
+            <map to='#8c564b'>
+              <bucket>&quot;Weaving&quot;</bucket>
+            </map>
+            <map to='#8dd07e'>
+              <bucket>&quot;Comedy&quot;</bucket>
+            </map>
+            <map to='#91d281'>
+              <bucket>&quot;Classical Music&quot;</bucket>
+            </map>
+            <map to='#9467bd'>
+              <bucket>&quot;Conceptual Art&quot;</bucket>
+            </map>
+            <map to='#9467bd'>
+              <bucket>&quot;Family&quot;</bucket>
+            </map>
+            <map to='#9467bd'>
+              <bucket>&quot;Mobile Games&quot;</bucket>
+            </map>
+            <map to='#9467bd'>
+              <bucket>&quot;Poetry&quot;</bucket>
+            </map>
+            <map to='#9467bd'>
+              <bucket>&quot;Sculpture&quot;</bucket>
+            </map>
+            <map to='#94d484'>
+              <bucket>&quot;Children&apos;s Books&quot;</bucket>
+            </map>
+            <map to='#98d687'>
+              <bucket>&quot;Art Books&quot;</bucket>
+            </map>
+            <map to='#98df8a'>
+              <bucket>&quot;Experimental&quot;</bucket>
+            </map>
+            <map to='#98df8a'>
+              <bucket>&quot;Graphic Design&quot;</bucket>
+            </map>
+            <map to='#98df8a'>
+              <bucket>&quot;Makerspaces&quot;</bucket>
+            </map>
+            <map to='#98df8a'>
+              <bucket>&quot;Places&quot;</bucket>
+            </map>
+            <map to='#98df8a'>
+              <bucket>&quot;Vegan&quot;</bucket>
+            </map>
+            <map to='#9dd88d'>
+              <bucket>&quot;Art&quot;</bucket>
+            </map>
+            <map to='#9edae5'>
+              <bucket>&quot;Food Trucks&quot;</bucket>
+            </map>
+            <map to='#9edae5'>
+              <bucket>&quot;Knitting&quot;</bucket>
+            </map>
+            <map to='#9edae5'>
+              <bucket>&quot;Performances&quot;</bucket>
+            </map>
+            <map to='#9edae5'>
+              <bucket>&quot;R&amp;B&quot;</bucket>
+            </map>
+            <map to='#9edae5'>
+              <bucket>&quot;Television&quot;</bucket>
+            </map>
+            <map to='#a3da93'>
+              <bucket>&quot;Apps&quot;</bucket>
+            </map>
+            <map to='#a8dc99'>
+              <bucket>&quot;Apparel&quot;</bucket>
+            </map>
+            <map to='#adde9f'>
+              <bucket>&quot;Animation&quot;</bucket>
+            </map>
+            <map to='#aec7e8'>
+              <bucket>&quot;Academic&quot;</bucket>
+            </map>
+            <map to='#aec7e8'>
+              <bucket>&quot;Chiptune&quot;</bucket>
+            </map>
+            <map to='#aec7e8'>
+              <bucket>&quot;Letterpress&quot;</bucket>
+            </map>
+            <map to='#aec7e8'>
+              <bucket>&quot;Pet Fashion&quot;</bucket>
+            </map>
+            <map to='#aec7e8'>
+              <bucket>&quot;Ready-to-wear&quot;</bucket>
+            </map>
+            <map to='#b3e0a6'>
+              <bucket>&quot;Accessories&quot;</bucket>
+            </map>
+            <map to='#bcbd22'>
+              <bucket>&quot;Camera Equipment&quot;</bucket>
+            </map>
+            <map to='#bcbd22'>
+              <bucket>&quot;Digital Art&quot;</bucket>
+            </map>
+            <map to='#bcbd22'>
+              <bucket>&quot;Fine Art&quot;</bucket>
+            </map>
+            <map to='#bcbd22'>
+              <bucket>&quot;Jewelry&quot;</bucket>
+            </map>
+            <map to='#bcbd22'>
+              <bucket>&quot;Punk&quot;</bucket>
+            </map>
+            <map to='#bcbd22'>
+              <bucket>&quot;World Music&quot;</bucket>
+            </map>
+            <map to='#c49c94'>
+              <bucket>&quot;Couture&quot;</bucket>
+            </map>
+            <map to='#c49c94'>
+              <bucket>&quot;Farms&quot;</bucket>
+            </map>
+            <map to='#c49c94'>
+              <bucket>&quot;Immersive&quot;</bucket>
+            </map>
+            <map to='#c49c94'>
+              <bucket>&quot;Music Videos&quot;</bucket>
+            </map>
+            <map to='#c49c94'>
+              <bucket>&quot;Print&quot;</bucket>
+            </map>
+            <map to='#c5b0d5'>
+              <bucket>&quot;Architecture&quot;</bucket>
+            </map>
+            <map to='#c5b0d5'>
+              <bucket>&quot;Cookbooks&quot;</bucket>
+            </map>
+            <map to='#c5b0d5'>
+              <bucket>&quot;Fantasy&quot;</bucket>
+            </map>
+            <map to='#c5b0d5'>
+              <bucket>&quot;Horror&quot;</bucket>
+            </map>
+            <map to='#c5b0d5'>
+              <bucket>&quot;Movie Theaters&quot;</bucket>
+            </map>
+            <map to='#c5b0d5'>
+              <bucket>&quot;Wearables&quot;</bucket>
+            </map>
+            <map to='#c7c7c7'>
+              <bucket>&quot;Calendars&quot;</bucket>
+            </map>
+            <map to='#c7c7c7'>
+              <bucket>&quot;Jazz&quot;</bucket>
+            </map>
+            <map to='#c7c7c7'>
+              <bucket>&quot;Stationery&quot;</bucket>
+            </map>
+            <map to='#c7c7c7'>
+              <bucket>&quot;Workshops&quot;</bucket>
+            </map>
+            <map to='#d62728'>
+              <bucket>&quot;Anthologies&quot;</bucket>
+            </map>
+            <map to='#d62728'>
+              <bucket>&quot;Fabrication Tools&quot;</bucket>
+            </map>
+            <map to='#d62728'>
+              <bucket>&quot;Graphic Novels&quot;</bucket>
+            </map>
+            <map to='#d62728'>
+              <bucket>&quot;Metal&quot;</bucket>
+            </map>
+            <map to='#d62728'>
+              <bucket>&quot;Romance&quot;</bucket>
+            </map>
+            <map to='#d62728'>
+              <bucket>&quot;Video&quot;</bucket>
+            </map>
+            <map to='#dbdb8d'>
+              <bucket>&quot;Candles&quot;</bucket>
+            </map>
+            <map to='#dbdb8d'>
+              <bucket>&quot;DIY&quot;</bucket>
+            </map>
+            <map to='#dbdb8d'>
+              <bucket>&quot;Flight&quot;</bucket>
+            </map>
+            <map to='#dbdb8d'>
+              <bucket>&quot;Journalism&quot;</bucket>
+            </map>
+            <map to='#dbdb8d'>
+              <bucket>&quot;People&quot;</bucket>
+            </map>
+            <map to='#dbdb8d'>
+              <bucket>&quot;Puzzles&quot;</bucket>
+            </map>
+            <map to='#dbdb8d'>
+              <bucket>&quot;Taxidermy&quot;</bucket>
+            </map>
+            <map to='#dbdb8d'>
+              <bucket>&quot;Young Adult&quot;</bucket>
+            </map>
+            <map to='#e377c2'>
+              <bucket>&quot;Audio&quot;</bucket>
+            </map>
+            <map to='#e377c2'>
+              <bucket>&quot;Musical&quot;</bucket>
+            </map>
+            <map to='#e377c2'>
+              <bucket>&quot;Printing&quot;</bucket>
+            </map>
+            <map to='#e377c2'>
+              <bucket>&quot;Sound&quot;</bucket>
+            </map>
+            <map to='#e377c2'>
+              <bucket>&quot;Webcomics&quot;</bucket>
+            </map>
+            <map to='#f7b6d2'>
+              <bucket>&quot;Bacon&quot;</bucket>
+            </map>
+            <map to='#f7b6d2'>
+              <bucket>&quot;Crochet&quot;</bucket>
+            </map>
+            <map to='#f7b6d2'>
+              <bucket>&quot;Festivals&quot;</bucket>
+            </map>
+            <map to='#f7b6d2'>
+              <bucket>&quot;Installations&quot;</bucket>
+            </map>
+            <map to='#f7b6d2'>
+              <bucket>&quot;Space Exploration&quot;</bucket>
+            </map>
+            <map to='#ff7f0e'>
+              <bucket>&quot;Civic Design&quot;</bucket>
+            </map>
+            <map to='#ff7f0e'>
+              <bucket>&quot;Literary Journals&quot;</bucket>
+            </map>
+            <map to='#ff7f0e'>
+              <bucket>&quot;Photo&quot;</bucket>
+            </map>
+            <map to='#ff7f0e'>
+              <bucket>&quot;Residencies&quot;</bucket>
+            </map>
+            <map to='#ff7f0e'>
+              <bucket>&quot;Thrillers&quot;</bucket>
+            </map>
+            <map to='#ff9896'>
+              <bucket>&quot;Community Gardens&quot;</bucket>
+            </map>
+            <map to='#ff9896'>
+              <bucket>&quot;Faith&quot;</bucket>
+            </map>
+            <map to='#ff9896'>
+              <bucket>&quot;Plays&quot;</bucket>
+            </map>
+            <map to='#ff9896'>
+              <bucket>&quot;Science Fiction&quot;</bucket>
+            </map>
+            <map to='#ff9896'>
+              <bucket>&quot;Video Art&quot;</bucket>
+            </map>
+            <map to='#ffbb78'>
+              <bucket>&quot;Action&quot;</bucket>
+            </map>
+            <map to='#ffbb78'>
+              <bucket>&quot;Embroidery&quot;</bucket>
+            </map>
+            <map to='#ffbb78'>
+              <bucket>&quot;Gaming Hardware&quot;</bucket>
+            </map>
+            <map to='#ffbb78'>
+              <bucket>&quot;Literary Spaces&quot;</bucket>
+            </map>
+            <map to='#ffbb78'>
+              <bucket>&quot;Photobooks&quot;</bucket>
+            </map>
+            <map to='#ffbb78'>
+              <bucket>&quot;Translations&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:main_category:nk]' type='palette'>
+            <map to='#1f77b4'>
+              <bucket>&quot;Art&quot;</bucket>
+            </map>
+            <map to='#2ca02c'>
+              <bucket>&quot;Design&quot;</bucket>
+            </map>
+            <map to='#7f7f7f'>
+              <bucket>&quot;Theater&quot;</bucket>
+            </map>
+            <map to='#8c564b'>
+              <bucket>&quot;Music&quot;</bucket>
+            </map>
+            <map to='#9467bd'>
+              <bucket>&quot;Games&quot;</bucket>
+            </map>
+            <map to='#98df8a'>
+              <bucket>&quot;Fashion&quot;</bucket>
+            </map>
+            <map to='#aec7e8'>
+              <bucket>&quot;Comics&quot;</bucket>
+            </map>
+            <map to='#c49c94'>
+              <bucket>&quot;Photography&quot;</bucket>
+            </map>
+            <map to='#c5b0d5'>
+              <bucket>&quot;Journalism&quot;</bucket>
+            </map>
+            <map to='#d62728'>
+              <bucket>&quot;Film &amp; Video&quot;</bucket>
+            </map>
+            <map to='#e377c2'>
+              <bucket>&quot;Publishing&quot;</bucket>
+            </map>
+            <map to='#f7b6d2'>
+              <bucket>&quot;Technology&quot;</bucket>
+            </map>
+            <map to='#ff7f0e'>
+              <bucket>&quot;Crafts&quot;</bucket>
+            </map>
+            <map to='#ff9896'>
+              <bucket>&quot;Food&quot;</bucket>
+            </map>
+            <map to='#ffbb78'>
+              <bucket>&quot;Dance&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;France&quot;' />
+      </semantic-values>
+      <_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+        <objects>
+          <object caption='Données migrées' id='Migrated Data'>
+            <properties context=''>
+              <relation connection='textscan.01nqfu61m2nq1l1bn1vww0z1gahj' name='ks-projects-201801.csv' table='[ks-projects-201801#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='integer' name='ID' ordinal='0' />
+                  <column datatype='string' name='name' ordinal='1' />
+                  <column datatype='string' name='category' ordinal='2' />
+                  <column datatype='string' name='main_category' ordinal='3' />
+                  <column datatype='string' name='currency' ordinal='4' />
+                  <column datatype='date' name='deadline' ordinal='5' />
+                  <column datatype='real' name='goal' ordinal='6' />
+                  <column datatype='datetime' name='launched' ordinal='7' />
+                  <column datatype='real' name='pledged' ordinal='8' />
+                  <column datatype='integer' name='state' ordinal='9' />
+                  <column datatype='integer' name='backers' ordinal='10' />
+                  <column datatype='string' name='country' ordinal='11' />
+                  <column datatype='real' name='usd pledged' ordinal='12' />
+                  <column datatype='real' name='usd_pledged_real' ordinal='13' />
+                  <column datatype='real' name='usd_goal_real' ordinal='14' />
+                </columns>
+              </relation>
+            </properties>
+          </object>
+        </objects>
+      </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+    </datasource>
+  </datasources>
+  <mapsources>
+    <mapsource name='Tableau' />
+  </mapsources>
+  <worksheets>
+    <worksheet name='Funds raised (Average) by category and sub category'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='ks-projects-201801' name='federated.1smwlxm14xw573196j06v1k44rwp' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1smwlxm14xw573196j06v1k44rwp'>
+            <column-instance column='[usd pledged]' derivation='Avg' name='[avg:usd pledged:qk]' pivot='key' type='quantitative' />
+            <column caption='Category' datatype='string' name='[category]' role='dimension' type='nominal' />
+            <column caption='Main Category' datatype='string' name='[main_category]' role='dimension' type='nominal' />
+            <column-instance column='[category]' derivation='None' name='[none:category:nk]' pivot='key' type='nominal' />
+            <column-instance column='[main_category]' derivation='None' name='[none:main_category:nk]' pivot='key' type='nominal' />
+            <column caption='Usd Pledged' datatype='real' name='[usd pledged]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <natural-sort column='[federated.1smwlxm14xw573196j06v1k44rwp].[none:main_category:nk]' direction='DESC' />
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='width' value='1365' />
+            <format attr='text-format' field='[federated.1smwlxm14xw573196j06v1k44rwp].[avg:usd pledged:qk]' value='c&quot;$&quot;#,##0,.0K;(&quot;$&quot;#,##0,.0K)' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='background-color' field='[federated.1smwlxm14xw573196j06v1k44rwp].[avg:usd pledged:qk]' value='#e6e6e6' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='text-format' field='[federated.1smwlxm14xw573196j06v1k44rwp].[avg:usd pledged:qk]' value='n#,##0,.0K;-#,##0,.0K' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <encodings>
+              <lod column='[federated.1smwlxm14xw573196j06v1k44rwp].[none:main_category:nk]' />
+              <size column='[federated.1smwlxm14xw573196j06v1k44rwp].[avg:usd pledged:qk]' />
+              <text column='[federated.1smwlxm14xw573196j06v1k44rwp].[none:category:nk]' />
+              <text column='[federated.1smwlxm14xw573196j06v1k44rwp].[avg:usd pledged:qk]' />
+              <color column='[federated.1smwlxm14xw573196j06v1k44rwp].[none:main_category:nk]' />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run bold='true'><![CDATA[<[federated.1smwlxm14xw573196j06v1k44rwp].[none:category:nk]>]]></run>
+                <run>Æ&#10;</run>
+                <run fontsize='8'><![CDATA[<[federated.1smwlxm14xw573196j06v1k44rwp].[avg:usd pledged:qk]>]]></run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element='cell'>
+                <format attr='text-orientation' value='0' />
+                <format attr='text-align' value='center' />
+                <format attr='vertical-align' value='center' />
+                <format attr='wrap' value='on' />
+              </style-rule>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-line-first' value='true' />
+                <format attr='mark-labels-line-last' value='true' />
+                <format attr='mark-labels-range-min' value='true' />
+                <format attr='mark-labels-range-max' value='true' />
+                <format attr='mark-labels-range-scope' value='pane' />
+                <format attr='mark-labels-range-field' value='' />
+                <format attr='mark-labels-mode' value='all' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{1B00F2B2-6DE0-4FC0-9E32-AF3EBF96BAFF}' />
+    </worksheet>
+    <worksheet name='Funds raised (Sum) by category and sub category'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='ks-projects-201801' name='federated.1smwlxm14xw573196j06v1k44rwp' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1smwlxm14xw573196j06v1k44rwp'>
+            <column caption='Category' datatype='string' name='[category]' role='dimension' type='nominal' />
+            <column caption='Main Category' datatype='string' name='[main_category]' role='dimension' type='nominal' />
+            <column-instance column='[category]' derivation='None' name='[none:category:nk]' pivot='key' type='nominal' />
+            <column-instance column='[main_category]' derivation='None' name='[none:main_category:nk]' pivot='key' type='nominal' />
+            <column-instance column='[usd pledged]' derivation='Sum' name='[sum:usd pledged:qk]' pivot='key' type='quantitative' />
+            <column caption='Usd Pledged' datatype='real' name='[usd pledged]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='width' value='1365' />
+            <format attr='text-format' field='[federated.1smwlxm14xw573196j06v1k44rwp].[sum:usd pledged:qk]' value='c&quot;$&quot;#,##0,,.0M;(&quot;$&quot;#,##0,,.0M)' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='background-color' field='[federated.1smwlxm14xw573196j06v1k44rwp].[sum:usd pledged:qk]' value='#e6e6e6' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='text-format' field='[federated.1smwlxm14xw573196j06v1k44rwp].[sum:usd pledged:qk]' value='n#,##0,.0K;-#,##0,.0K' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <encodings>
+              <size column='[federated.1smwlxm14xw573196j06v1k44rwp].[sum:usd pledged:qk]' />
+              <text column='[federated.1smwlxm14xw573196j06v1k44rwp].[none:category:nk]' />
+              <text column='[federated.1smwlxm14xw573196j06v1k44rwp].[sum:usd pledged:qk]' />
+              <color column='[federated.1smwlxm14xw573196j06v1k44rwp].[none:main_category:nk]' />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run bold='true'><![CDATA[<[federated.1smwlxm14xw573196j06v1k44rwp].[none:category:nk]>]]></run>
+                <run>Æ&#10;</run>
+                <run fontsize='8'><![CDATA[<[federated.1smwlxm14xw573196j06v1k44rwp].[sum:usd pledged:qk]>]]></run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element='cell'>
+                <format attr='text-orientation' value='0' />
+                <format attr='text-align' value='center' />
+                <format attr='vertical-align' value='center' />
+                <format attr='wrap' value='on' />
+              </style-rule>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-line-first' value='true' />
+                <format attr='mark-labels-line-last' value='true' />
+                <format attr='mark-labels-range-min' value='true' />
+                <format attr='mark-labels-range-max' value='true' />
+                <format attr='mark-labels-range-scope' value='pane' />
+                <format attr='mark-labels-range-field' value='' />
+                <format attr='mark-labels-mode' value='all' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{E3774888-D40F-4F8C-B5A7-F8921E2F0F83}' />
+    </worksheet>
+    <worksheet name='Funds raised (Sum) by main category'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='ks-projects-201801' name='federated.1smwlxm14xw573196j06v1k44rwp' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1smwlxm14xw573196j06v1k44rwp'>
+            <column caption='Main Category' datatype='string' name='[main_category]' role='dimension' type='nominal' />
+            <column-instance column='[main_category]' derivation='None' name='[none:main_category:nk]' pivot='key' type='nominal' />
+            <column-instance column='[usd pledged]' derivation='Sum' name='[sum:usd pledged:qk]' pivot='key' type='quantitative' />
+            <column caption='Usd Pledged' datatype='real' name='[usd pledged]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <natural-sort column='[federated.1smwlxm14xw573196j06v1k44rwp].[none:main_category:nk]' direction='DESC' />
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='width' value='1365' />
+            <format attr='text-format' field='[federated.1smwlxm14xw573196j06v1k44rwp].[sum:usd pledged:qk]' value='c&quot;$&quot;#,##0,.0K;(&quot;$&quot;#,##0,.0K)' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='background-color' field='[federated.1smwlxm14xw573196j06v1k44rwp].[sum:usd pledged:qk]' value='#e6e6e6' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='text-format' field='[federated.1smwlxm14xw573196j06v1k44rwp].[sum:usd pledged:qk]' value='n#,##0,.0K;-#,##0,.0K' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <encodings>
+              <text column='[federated.1smwlxm14xw573196j06v1k44rwp].[none:main_category:nk]' />
+              <lod column='[federated.1smwlxm14xw573196j06v1k44rwp].[none:main_category:nk]' />
+              <size column='[federated.1smwlxm14xw573196j06v1k44rwp].[sum:usd pledged:qk]' />
+              <color column='[federated.1smwlxm14xw573196j06v1k44rwp].[none:main_category:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='cell'>
+                <format attr='text-orientation' value='0' />
+                <format attr='text-align' value='center' />
+                <format attr='vertical-align' value='center' />
+                <format attr='wrap' value='on' />
+              </style-rule>
+              <style-rule element='mark'>
+                <format attr='mark-labels-line-first' value='true' />
+                <format attr='mark-labels-line-last' value='true' />
+                <format attr='mark-labels-range-min' value='true' />
+                <format attr='mark-labels-range-max' value='true' />
+                <format attr='mark-labels-range-scope' value='pane' />
+                <format attr='mark-labels-range-field' value='' />
+                <format attr='mark-labels-mode' value='all' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{11B9AD9C-4AC0-42F6-A33C-A5FF21FA532C}' />
+    </worksheet>
+    <worksheet name='Funds_raised_top5'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='ks-projects-201801' name='federated.1smwlxm14xw573196j06v1k44rwp' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1smwlxm14xw573196j06v1k44rwp'>
+            <column caption='Rank' datatype='integer' name='[Calculation_815714549250977792]' role='measure' type='ordinal'>
+              <calculation class='tableau' formula='INDEX()'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
+            <column caption='Category' datatype='string' name='[category]' role='dimension' type='nominal' />
+            <column caption='Main Category' datatype='string' name='[main_category]' role='dimension' type='nominal' />
+            <column-instance column='[category]' derivation='None' name='[none:category:nk]' pivot='key' type='nominal' />
+            <column-instance column='[main_category]' derivation='None' name='[none:main_category:nk]' pivot='key' type='nominal' />
+            <column-instance column='[usd pledged]' derivation='Sum' name='[sum:usd pledged:qk]' pivot='key' type='quantitative' />
+            <column caption='Usd Pledged' datatype='real' name='[usd pledged]' role='measure' type='quantitative' />
+            <column-instance column='[Calculation_815714549250977792]' derivation='User' name='[usr:Calculation_815714549250977792:qk:2]' pivot='key' type='quantitative'>
+              <table-calc ordering-field='[federated.1smwlxm14xw573196j06v1k44rwp].[category]' ordering-type='Field' />
+            </column-instance>
+          </datasource-dependencies>
+          <computed-sort column='[federated.1smwlxm14xw573196j06v1k44rwp].[none:category:nk]' direction='DESC' using='[federated.1smwlxm14xw573196j06v1k44rwp].[sum:usd pledged:qk]' />
+          <filter class='categorical' column='[federated.1smwlxm14xw573196j06v1k44rwp].[none:main_category:nk]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:main_category:nk]' member='&quot;Design&quot;' />
+              <groupfilter function='member' level='[none:main_category:nk]' member='&quot;Games&quot;' />
+              <groupfilter function='member' level='[none:main_category:nk]' member='&quot;Technology&quot;' />
+            </groupfilter>
+          </filter>
+          <filter class='quantitative' column='[federated.1smwlxm14xw573196j06v1k44rwp].[usr:Calculation_815714549250977792:qk:2]' included-values='in-range'>
+            <min>1</min>
+            <max>5</max>
+          </filter>
+          <slices>
+            <column>[federated.1smwlxm14xw573196j06v1k44rwp].[none:main_category:nk]</column>
+            <column>[federated.1smwlxm14xw573196j06v1k44rwp].[usr:Calculation_815714549250977792:qk:2]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1smwlxm14xw573196j06v1k44rwp].[none:main_category:nk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.1smwlxm14xw573196j06v1k44rwp].[sum:usd pledged:qk]</rows>
+        <cols>([federated.1smwlxm14xw573196j06v1k44rwp].[none:main_category:nk] / [federated.1smwlxm14xw573196j06v1k44rwp].[none:category:nk])</cols>
+      </table>
+      <simple-id uuid='{2CC071AD-D8EC-41EA-979F-4C109FF9FD84}' />
+    </worksheet>
+    <worksheet name='Top 50 sub-categories'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='ks-projects-201801' name='federated.1smwlxm14xw573196j06v1k44rwp' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1smwlxm14xw573196j06v1k44rwp'>
+            <column caption='Rank' datatype='integer' name='[Calculation_815714549250977792]' role='measure' type='ordinal'>
+              <calculation class='tableau' formula='INDEX()'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
+            <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+              <calculation class='tableau' formula='1' />
+            </column>
+            <column caption='Category' datatype='string' name='[category]' role='dimension' type='nominal' />
+            <column-instance column='[category]' derivation='None' name='[none:category:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Number of Records]' derivation='Sum' name='[sum:Number of Records:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_815714549250977792]' derivation='User' name='[usr:Calculation_815714549250977792:qk:1]' pivot='key' type='quantitative'>
+              <table-calc ordering-type='Field'>
+                <order field='[federated.1smwlxm14xw573196j06v1k44rwp].[category]' />
+                <sort direction='DESC' using='[federated.1smwlxm14xw573196j06v1k44rwp].[sum:Number of Records:qk]' />
+              </table-calc>
+            </column-instance>
+          </datasource-dependencies>
+          <filter class='quantitative' column='[federated.1smwlxm14xw573196j06v1k44rwp].[usr:Calculation_815714549250977792:qk:1]' included-values='in-range'>
+            <min>1</min>
+            <max>50</max>
+          </filter>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.1smwlxm14xw573196j06v1k44rwp].[none:category:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.1smwlxm14xw573196j06v1k44rwp].[sum:Number of Records:qk]' shelf='columns' />
+          </shelf-sorts>
+          <slices>
+            <column>[federated.1smwlxm14xw573196j06v1k44rwp].[usr:Calculation_815714549250977792:qk:1]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.1smwlxm14xw573196j06v1k44rwp].[sum:Number of Records:qk]' scope='rows' value='Nb of projects' />
+            <encoding attr='space' class='0' domain-expand='false' field='[federated.1smwlxm14xw573196j06v1k44rwp].[sum:Number of Records:qk]' field-type='quantitative' scope='rows' type='space' />
+            <format attr='line-visibility' scope='rows' value='on' />
+            <format attr='line-pattern-only' scope='rows' value='solid' />
+          </style-rule>
+          <style-rule element='gridline'>
+            <format attr='line-visibility' scope='rows' value='on' />
+            <format attr='line-pattern-only' scope='rows' value='solid' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1smwlxm14xw573196j06v1k44rwp].[sum:Number of Records:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1smwlxm14xw573196j06v1k44rwp].[sum:Number of Records:qk]</rows>
+        <cols>[federated.1smwlxm14xw573196j06v1k44rwp].[none:category:nk]</cols>
+      </table>
+      <simple-id uuid='{15DAD6DA-16D6-495D-BD38-23257BBE59AD}' />
+    </worksheet>
+    <worksheet name='backers_map'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontalignment='0' fontsize='10'>Backers in America and Europe</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='ks-projects-201801' name='federated.1smwlxm14xw573196j06v1k44rwp' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.1smwlxm14xw573196j06v1k44rwp'>
+            <column caption='Backers' datatype='integer' name='[backers]' role='measure' type='quantitative' />
+            <column caption='Country' datatype='string' name='[country]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+            <column-instance column='[country]' derivation='None' name='[none:country:nk]' pivot='key' type='nominal' />
+            <column-instance column='[backers]' derivation='Sum' name='[pcto:sum:backers:qk]' pivot='key' type='quantitative'>
+              <table-calc ordering-type='Columns' type='PctTotal' />
+            </column-instance>
+          </datasource-dependencies>
+          <filter class='quantitative' column='[federated.1smwlxm14xw573196j06v1k44rwp].[Latitude (generated)]' included-values='non-null' />
+          <filter class='quantitative' column='[federated.1smwlxm14xw573196j06v1k44rwp].[Longitude (generated)]' included-values='non-null' />
+          <slices>
+            <column>[federated.1smwlxm14xw573196j06v1k44rwp].[Latitude (generated)]</column>
+            <column>[federated.1smwlxm14xw573196j06v1k44rwp].[Longitude (generated)]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.1smwlxm14xw573196j06v1k44rwp].[Longitude (generated)]' field-type='quantitative' max='46597859.349350601' min='21517289.67037506' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+            <encoding attr='space' class='0' field='[federated.1smwlxm14xw573196j06v1k44rwp].[Latitude (generated)]' field-type='quantitative' max='12556530.106586995' min='2247338.5449256245' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.1smwlxm14xw573196j06v1k44rwp].[pcto:sum:backers:qk]' palette='green_gold_10_0' type='interpolated' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='omit-on-special' field='[federated.1smwlxm14xw573196j06v1k44rwp].[none:country:nk]' value='false' />
+            <format attr='break-on-special' field='[federated.1smwlxm14xw573196j06v1k44rwp].[none:country:nk]' value='false' />
+            <format attr='show-null-value-warning' field='[federated.1smwlxm14xw573196j06v1k44rwp].[none:country:nk]' value='false' />
+          </style-rule>
+          <style-rule element='legend-title-text'>
+            <format attr='color' field='[federated.1smwlxm14xw573196j06v1k44rwp].[pcto:sum:backers:qk]' value='% out of total Backers'>
+              <formatted-text>
+                <run>% out of </run>
+                <run bold='true'>total Backers</run>
+              </formatted-text>
+            </format>
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Multipolygon' />
+            <encodings>
+              <color column='[federated.1smwlxm14xw573196j06v1k44rwp].[pcto:sum:backers:qk]' />
+              <text column='[federated.1smwlxm14xw573196j06v1k44rwp].[none:country:nk]' />
+              <text column='[federated.1smwlxm14xw573196j06v1k44rwp].[pcto:sum:backers:qk]' />
+              <geometry column='[federated.1smwlxm14xw573196j06v1k44rwp].[Geometry (generated)]' />
+            </encodings>
+            <style>
+              <style-rule element='datalabel'>
+                <format attr='color-mode' value='user' />
+                <format attr='font-weight' value='bold' />
+                <format attr='font-size' value='9' />
+                <format attr='font-style' value='normal' />
+                <format attr='color' value='#000000' />
+              </style-rule>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-mode' value='all' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1smwlxm14xw573196j06v1k44rwp].[Latitude (generated)]</rows>
+        <cols>[federated.1smwlxm14xw573196j06v1k44rwp].[Longitude (generated)]</cols>
+        <percentages enabled='true' mode='column' />
+      </table>
+      <simple-id uuid='{18D60C8B-17BB-48E0-ABEE-898D516C8CF4}' />
+    </worksheet>
+    <worksheet name='backers_map (2)'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontalignment='0' fontsize='10'>Backers in Asia</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='ks-projects-201801' name='federated.1smwlxm14xw573196j06v1k44rwp' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.1smwlxm14xw573196j06v1k44rwp'>
+            <column caption='Backers' datatype='integer' name='[backers]' role='measure' type='quantitative' />
+            <column caption='Country' datatype='string' name='[country]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+            <column-instance column='[country]' derivation='None' name='[none:country:nk]' pivot='key' type='nominal' />
+            <column-instance column='[backers]' derivation='Sum' name='[pcto:sum:backers:qk]' pivot='key' type='quantitative'>
+              <table-calc ordering-type='Columns' type='PctTotal' />
+            </column-instance>
+          </datasource-dependencies>
+          <filter class='quantitative' column='[federated.1smwlxm14xw573196j06v1k44rwp].[Latitude (generated)]' included-values='non-null' />
+          <filter class='quantitative' column='[federated.1smwlxm14xw573196j06v1k44rwp].[Longitude (generated)]' included-values='non-null' />
+          <slices>
+            <column>[federated.1smwlxm14xw573196j06v1k44rwp].[Latitude (generated)]</column>
+            <column>[federated.1smwlxm14xw573196j06v1k44rwp].[Longitude (generated)]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.1smwlxm14xw573196j06v1k44rwp].[Longitude (generated)]' field-type='quantitative' max='65837690.715483747' min='43037172.145997591' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+            <encoding attr='space' class='0' field='[federated.1smwlxm14xw573196j06v1k44rwp].[Latitude (generated)]' field-type='quantitative' max='4941870.3163065417' min='-4430122.2917836616' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.1smwlxm14xw573196j06v1k44rwp].[pcto:sum:backers:qk]' palette='green_gold_10_0' type='interpolated' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='omit-on-special' field='[federated.1smwlxm14xw573196j06v1k44rwp].[none:country:nk]' value='false' />
+            <format attr='break-on-special' field='[federated.1smwlxm14xw573196j06v1k44rwp].[none:country:nk]' value='false' />
+            <format attr='show-null-value-warning' field='[federated.1smwlxm14xw573196j06v1k44rwp].[none:country:nk]' value='false' />
+          </style-rule>
+          <style-rule element='legend-title-text'>
+            <format attr='color' field='[federated.1smwlxm14xw573196j06v1k44rwp].[pcto:sum:backers:qk]' value='% out of total Backers'>
+              <formatted-text>
+                <run>% out of </run>
+                <run bold='true'>total Backers</run>
+              </formatted-text>
+            </format>
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Multipolygon' />
+            <encodings>
+              <color column='[federated.1smwlxm14xw573196j06v1k44rwp].[pcto:sum:backers:qk]' />
+              <text column='[federated.1smwlxm14xw573196j06v1k44rwp].[none:country:nk]' />
+              <text column='[federated.1smwlxm14xw573196j06v1k44rwp].[pcto:sum:backers:qk]' />
+              <geometry column='[federated.1smwlxm14xw573196j06v1k44rwp].[Geometry (generated)]' />
+            </encodings>
+            <style>
+              <style-rule element='datalabel'>
+                <format attr='color-mode' value='user' />
+                <format attr='font-weight' value='bold' />
+                <format attr='font-size' value='9' />
+                <format attr='font-style' value='normal' />
+                <format attr='color' value='#000000' />
+              </style-rule>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-mode' value='all' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1smwlxm14xw573196j06v1k44rwp].[Latitude (generated)]</rows>
+        <cols>[federated.1smwlxm14xw573196j06v1k44rwp].[Longitude (generated)]</cols>
+        <percentages enabled='true' mode='column' />
+      </table>
+      <simple-id uuid='{D986D83C-96B1-4211-AA67-51A742C9C514}' />
+    </worksheet>
+    <worksheet name='categories'>
+      <layout-options>
+        <title>
+          <formatted-text />
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='ks-projects-201801' name='federated.1smwlxm14xw573196j06v1k44rwp' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1smwlxm14xw573196j06v1k44rwp'>
+            <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+              <calculation class='tableau' formula='1' />
+            </column>
+            <column caption='Main Category' datatype='string' name='[main_category]' role='dimension' type='nominal' />
+            <column-instance column='[main_category]' derivation='None' name='[none:main_category:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Number of Records]' derivation='Sum' name='[sum:Number of Records:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.1smwlxm14xw573196j06v1k44rwp].[none:main_category:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.1smwlxm14xw573196j06v1k44rwp].[sum:Number of Records:qk]' shelf='columns' />
+          </shelf-sorts>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' domain-expand='false' field='[federated.1smwlxm14xw573196j06v1k44rwp].[sum:Number of Records:qk]' field-type='quantitative' major-origin='0' major-spacing='10000' scope='rows' type='space' />
+            <format attr='title' class='0' field='[federated.1smwlxm14xw573196j06v1k44rwp].[sum:Number of Records:qk]' scope='rows' value='Nb of projects' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='size-bar' field='[federated.1smwlxm14xw573196j06v1k44rwp].[sum:Number of Records:qk]' field-type='quantitative' max-size='1' min-size='0.005' type='centersize' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='band-size' scope='cols' value='0' />
+          </style-rule>
+          <style-rule element='gridline'>
+            <format attr='line-visibility' scope='rows' value='on' />
+            <format attr='line-pattern-only' scope='rows' value='solid' />
+            <format attr='stroke-color' scope='rows' value='#f2f2f2' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1smwlxm14xw573196j06v1k44rwp].[none:main_category:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1smwlxm14xw573196j06v1k44rwp].[sum:Number of Records:qk]</rows>
+        <cols>[federated.1smwlxm14xw573196j06v1k44rwp].[none:main_category:nk]</cols>
+      </table>
+      <simple-id uuid='{E1EF2C99-A38F-44EE-BCA6-56DF514EDD38}' />
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard name='Map'>
+      <style />
+      <size maxheight='800' maxwidth='1000' minheight='800' minwidth='1000' />
+      <zones>
+        <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='4' w='100000' x='0' y='0'>
+          <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98000' id='7' param='horz' w='98400' x='800' y='1000'>
+            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='98000' id='5' w='82400' x='800' y='1000'>
+              <zone h='49000' id='3' name='backers_map' w='82400' x='800' y='1000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='49000' id='9' name='backers_map (2)' w='82400' x='800' y='50000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+            <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' fixed-size='160' h='98000' id='6' is-fixed='true' param='vert' w='16000' x='83200' y='1000'>
+              <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' h='8125' id='8' name='backers_map' pane-specification-id='1' param='[federated.1smwlxm14xw573196j06v1k44rwp].[pcto:sum:backers:qk]' w='16000' x='83200' y='1000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='700' minheight='700' sizing-mode='vscroll' />
+          <zones>
+            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='25' w='100000' x='0' y='0'>
+              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='84000' id='24' param='vert' w='84000' x='8000' y='8000'>
+                <zone fixed-size='280' h='49000' id='3' is-fixed='true' name='backers_map' w='82400' x='800' y='1000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' h='8125' id='8' name='backers_map' pane-specification-id='1' param='[federated.1smwlxm14xw573196j06v1k44rwp].[pcto:sum:backers:qk]' w='16000' x='83200' y='1000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='49000' id='9' is-fixed='true' name='backers_map (2)' w='82400' x='800' y='50000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{25F1C43D-D836-4E64-BB8E-59CC001C9A27}' />
+    </dashboard>
+  </dashboards>
+  <windows source-height='30'>
+    <window class='worksheet' name='backers_map' tab-color='#4f779a'>
+      <cards>
+        <edge name='left'>
+          <strip size='205'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='170'>
+            <card pane-specification-id='1' param='[federated.1smwlxm14xw573196j06v1k44rwp].[pcto:sum:backers:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{9B96B88F-3D80-42B7-BF5B-DE72E4AAB5DB}' />
+    </window>
+    <window class='worksheet' name='backers_map (2)' tab-color='#4f779a'>
+      <cards>
+        <edge name='left'>
+          <strip size='205'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='170'>
+            <card pane-specification-id='2' param='[federated.1smwlxm14xw573196j06v1k44rwp].[pcto:sum:backers:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{A9DD46C9-05DD-4722-825F-1F824CE9F9F2}' />
+    </window>
+    <window class='dashboard' name='Map'>
+      <viewpoints>
+        <viewpoint name='backers_map'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='backers_map (2)'>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='-1' />
+      <simple-id uuid='{7988F4BB-866E-4209-8ED0-1F0D8B0B1287}' />
+    </window>
+    <window class='worksheet' name='categories' tab-color='#f66273'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='170'>
+            <card pane-specification-id='0' param='[federated.1smwlxm14xw573196j06v1k44rwp].[none:main_category:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='fit-width' />
+      </viewpoint>
+      <simple-id uuid='{F248A0F1-B5DD-4F8D-BF0B-BD948FC051A4}' />
+    </window>
+    <window class='worksheet' name='Top 50 sub-categories' tab-color='#f66273'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='170'>
+            <card pane-specification-id='0' param='[federated.1smwlxm14xw573196j06v1k44rwp].[sum:Number of Records:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{83B9CD21-597D-43B4-9A88-89B928546716}' />
+    </window>
+    <window class='worksheet' name='Funds raised (Sum) by category and sub category' tab-color='#dec77b'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1smwlxm14xw573196j06v1k44rwp].[none:main_category:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{B3DB9865-36D0-4DAF-B325-EC46213CC308}' />
+    </window>
+    <window class='worksheet' name='Funds raised (Average) by category and sub category' tab-color='#dec77b'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1smwlxm14xw573196j06v1k44rwp].[none:main_category:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{A0E606F0-A1B4-4CA3-A96A-758904B0221C}' />
+    </window>
+    <window class='worksheet' name='Funds raised (Sum) by main category' tab-color='#dec77b'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1smwlxm14xw573196j06v1k44rwp].[none:main_category:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{D9FA1E15-088B-48D1-A28B-AE9621B238DB}' />
+    </window>
+    <window class='worksheet' maximized='true' name='Funds_raised_top5' tab-color='#dec77b'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1smwlxm14xw573196j06v1k44rwp].[none:main_category:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{8A0DD21A-0ADB-4B34-B7D0-21ABCB6F8C02}' />
+    </window>
+  </windows>
+</workbook>
