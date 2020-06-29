@@ -64,7 +64,7 @@ Fund Raising status in history of Kickstarter
 
 Average length of campaigns (nb of days) that have seen different fates
 <p align="center">
-  <img src="srcs/campaign_days_by_states.png" alt="campaign days by state/made with tableau" />  
+  <img src="srcs/campaign_days_by_state.png" alt="campaign days by state/made with tableau" />  
 </p>
 
 

@@ -1395,32 +1395,6 @@
       </table>
       <simple-id uuid='{2CC071AD-D8EC-41EA-979F-4C109FF9FD84}' />
     </worksheet>
-    <worksheet name='Sheet 11'>
-      <table>
-        <view>
-          <datasources>
-            <datasource caption='campaign_duration_days' name='federated.0fgk2cb1tgx4p715nbqqa1i7g77x' />
-          </datasources>
-          <datasource-dependencies datasource='federated.0fgk2cb1tgx4p715nbqqa1i7g77x'>
-            <column-instance column='[state]' derivation='None' name='[none:state:nk]' pivot='key' type='nominal' />
-            <column caption='state' datatype='string' name='[state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
-          </datasource-dependencies>
-          <aggregation value='true' />
-        </view>
-        <style />
-        <panes>
-          <pane id='2' selection-relaxation-option='selection-relaxation-allow'>
-            <view>
-              <breakdown value='auto' />
-            </view>
-            <mark class='Automatic' />
-          </pane>
-        </panes>
-        <rows />
-        <cols>[federated.0fgk2cb1tgx4p715nbqqa1i7g77x].[none:state:nk]</cols>
-      </table>
-      <simple-id uuid='{DB75224F-772B-456E-A655-9727DF2E2246}' />
-    </worksheet>
     <worksheet name='Top 50 sub-categories'>
       <table>
         <view>
@@ -1673,6 +1647,47 @@
         <percentages enabled='true' mode='column' />
       </table>
       <simple-id uuid='{D986D83C-96B1-4211-AA67-51A742C9C514}' />
+    </worksheet>
+    <worksheet name='campaign_days_by_state'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='campaign_duration_days' name='federated.0fgk2cb1tgx4p715nbqqa1i7g77x' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0fgk2cb1tgx4p715nbqqa1i7g77x'>
+            <column-instance column='[campaign_duration]' derivation='Avg' name='[avg:campaign_duration:qk]' pivot='key' type='quantitative' />
+            <column caption='campaign_duration' datatype='integer' name='[campaign_duration]' role='measure' type='quantitative' />
+            <column-instance column='[state]' derivation='None' name='[none:state:nk]' pivot='key' type='nominal' />
+            <column caption='state' datatype='string' name='[state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+          </datasource-dependencies>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.0fgk2cb1tgx4p715nbqqa1i7g77x].[none:state:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.0fgk2cb1tgx4p715nbqqa1i7g77x].[avg:campaign_duration:qk]' shelf='columns' />
+          </shelf-sorts>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0fgk2cb1tgx4p715nbqqa1i7g77x].[none:state:nk]' />
+              <text column='[federated.0fgk2cb1tgx4p715nbqqa1i7g77x].[avg:campaign_duration:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0fgk2cb1tgx4p715nbqqa1i7g77x].[avg:campaign_duration:qk]</rows>
+        <cols>[federated.0fgk2cb1tgx4p715nbqqa1i7g77x].[none:state:nk]</cols>
+      </table>
+      <simple-id uuid='{DB75224F-772B-456E-A655-9727DF2E2246}' />
     </worksheet>
     <worksheet name='categories'>
       <layout-options>
@@ -2098,7 +2113,7 @@
       </cards>
       <simple-id uuid='{2A77FECB-A4E4-46E4-98F9-78B2A8784BCB}' />
     </window>
-    <window class='worksheet' maximized='true' name='Sheet 11'>
+    <window class='worksheet' maximized='true' name='campaign_days_by_state' tab-color='#6e597f'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -2116,6 +2131,11 @@
           </strip>
           <strip size='31'>
             <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='2' param='[federated.0fgk2cb1tgx4p715nbqqa1i7g77x].[none:state:nk]' type='color' />
           </strip>
         </edge>
       </cards>
