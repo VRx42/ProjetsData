@@ -293,6 +293,12 @@
         </metadata-records>
       </connection>
       <aliases enabled='yes' />
+      <column caption='Nb of days to reach goal' datatype='real' name='[Calculation_785596727362433027]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='[deadline]- [launched]' />
+      </column>
+      <column caption='pledged more than goal' datatype='string' name='[Calculation_785596727366152196]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='IF ([usd_pledged_real] &gt;= [usd_goal_real]) then &apos;YES&apos;&#13;&#10;ELSE &apos;NO&apos;&#13;&#10;END' />
+      </column>
       <column caption='Rank' datatype='integer' name='[Calculation_815714549250977792]' role='measure' type='ordinal'>
         <calculation class='tableau' formula='INDEX()'>
           <table-calc ordering-type='Rows' />
@@ -900,9 +906,9 @@
         <semantic-value key='[Country].[Name]' value='&quot;France&quot;' />
       </semantic-values>
       <datasource-dependencies datasource='Parameters'>
-        <column caption='Top N' datatype='integer' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='27'>
-          <calculation class='tableau' formula='27' />
-          <range granularity='1' max='30' min='1' />
+        <column caption='Top N' datatype='integer' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='24'>
+          <calculation class='tableau' formula='24' />
+          <range granularity='1' max='50' min='1' />
         </column>
         <column caption='Bottom N' datatype='integer' name='[Top N (copy)_785596727145508866]' param-domain-type='range' role='measure' type='quantitative' value='5'>
           <calculation class='tableau' formula='5' />
@@ -939,9 +945,9 @@
     </datasource>
     <datasource hasconnection='false' inline='true' name='Parameters' version='18.1'>
       <aliases enabled='yes' />
-      <column caption='Top N' datatype='integer' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='27'>
-        <calculation class='tableau' formula='27' />
-        <range granularity='1' max='30' min='1' />
+      <column caption='Top N' datatype='integer' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='24'>
+        <calculation class='tableau' formula='24' />
+        <range granularity='1' max='50' min='1' />
       </column>
       <column caption='Bottom N' datatype='integer' name='[Top N (copy)_785596727145508866]' param-domain-type='range' role='measure' type='quantitative' value='5'>
         <calculation class='tableau' formula='5' />
@@ -954,6 +960,9 @@
           <named-connection caption='campaign_duration_days' name='textscan.0qsryvn0kd36uo1d14foo05fi418'>
             <connection class='textscan' directory='C:/Users/vicro/Documents/GitHub/ProjetsData/Kickstarter_Analysis/sub_dataframes' filename='campaign_duration_days.csv' password='' server='' />
           </named-connection>
+          <named-connection caption='ks-projects-201801' name='textscan.1qgt14g1xhd5dx192cjhj08682mj'>
+            <connection class='textscan' directory='C:/Users/vicro/Documents/GitHub/ProjetsData/Kickstarter_Analysis' filename='ks-projects-201801.csv' password='' server='' />
+          </named-connection>
         </named-connections>
         <_.fcp.ObjectModelEncapsulateLegacy.false...relation connection='textscan.0qsryvn0kd36uo1d14foo05fi418' name='campaign_duration_days.csv' table='[campaign_duration_days#csv]' type='table'>
           <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
@@ -963,19 +972,55 @@
             <column datatype='integer' name='campaign_duration' ordinal='3' />
           </columns>
         </_.fcp.ObjectModelEncapsulateLegacy.false...relation>
-        <_.fcp.ObjectModelEncapsulateLegacy.true...relation connection='textscan.0qsryvn0kd36uo1d14foo05fi418' name='campaign_duration_days.csv' table='[campaign_duration_days#csv]' type='table'>
-          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
-            <column datatype='integer' name='F1' ordinal='0' />
-            <column datatype='integer' name='ID' ordinal='1' />
-            <column datatype='string' name='state' ordinal='2' />
-            <column datatype='integer' name='campaign_duration' ordinal='3' />
-          </columns>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...relation type='collection'>
+          <relation connection='textscan.0qsryvn0kd36uo1d14foo05fi418' name='campaign_duration_days.csv' table='[campaign_duration_days#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='integer' name='F1' ordinal='0' />
+              <column datatype='integer' name='ID' ordinal='1' />
+              <column datatype='string' name='state' ordinal='2' />
+              <column datatype='integer' name='campaign_duration' ordinal='3' />
+            </columns>
+          </relation>
+          <relation connection='textscan.0qsryvn0kd36uo1d14foo05fi418' name='campaign_duration_days.csv1' table='[campaign_duration_days#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='integer' name='F1' ordinal='0' />
+              <column datatype='integer' name='ID' ordinal='1' />
+              <column datatype='string' name='state' ordinal='2' />
+              <column datatype='integer' name='campaign_duration' ordinal='3' />
+            </columns>
+          </relation>
         </_.fcp.ObjectModelEncapsulateLegacy.true...relation>
+        <cols>
+          <map key='[F1 (campaign_duration_days.csv1)]' value='[campaign_duration_days.csv1].[F1]' />
+          <map key='[F1]' value='[campaign_duration_days.csv].[F1]' />
+          <map key='[ID (campaign_duration_days.csv1)]' value='[campaign_duration_days.csv1].[ID]' />
+          <map key='[ID]' value='[campaign_duration_days.csv].[ID]' />
+          <map key='[campaign_duration (campaign_duration_days.csv1)]' value='[campaign_duration_days.csv1].[campaign_duration]' />
+          <map key='[campaign_duration]' value='[campaign_duration_days.csv].[campaign_duration]' />
+          <map key='[state (campaign_duration_days.csv1)]' value='[campaign_duration_days.csv1].[state]' />
+          <map key='[state]' value='[campaign_duration_days.csv].[state]' />
+        </cols>
         <metadata-records>
           <metadata-record class='capability'>
             <remote-name />
             <remote-type>0</remote-type>
             <parent-name>[campaign_duration_days.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[campaign_duration_days.csv1]</parent-name>
             <remote-alias />
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -1039,12 +1084,68 @@
             <contains-null>true</contains-null>
             <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[campaign_duration_days.csv_74692F83ED8F4FE6844C5B310A7E6480]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
           </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F1</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[F1 (campaign_duration_days.csv1)]</local-name>
+            <parent-name>[campaign_duration_days.csv1]</parent-name>
+            <remote-alias>F1</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[campaign_duration_days.csv_BE0123D1E8864EA9BA0D6E84068AD0E3]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[ID (campaign_duration_days.csv1)]</local-name>
+            <parent-name>[campaign_duration_days.csv1]</parent-name>
+            <remote-alias>ID</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[campaign_duration_days.csv_BE0123D1E8864EA9BA0D6E84068AD0E3]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>state</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[state (campaign_duration_days.csv1)]</local-name>
+            <parent-name>[campaign_duration_days.csv1]</parent-name>
+            <remote-alias>state</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[campaign_duration_days.csv_BE0123D1E8864EA9BA0D6E84068AD0E3]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>campaign_duration</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[campaign_duration (campaign_duration_days.csv1)]</local-name>
+            <parent-name>[campaign_duration_days.csv1]</parent-name>
+            <remote-alias>campaign_duration</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[campaign_duration_days.csv_BE0123D1E8864EA9BA0D6E84068AD0E3]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
         </metadata-records>
       </connection>
       <aliases enabled='yes' />
+      <column caption='F1 (campaign duration days.csv1)' datatype='integer' name='[F1 (campaign_duration_days.csv1)]' role='measure' type='quantitative' />
+      <column caption='ID (campaign duration days.csv1)' datatype='integer' name='[ID (campaign_duration_days.csv1)]' role='dimension' type='ordinal' />
       <column datatype='integer' name='[ID]' role='dimension' type='ordinal' />
       <_.fcp.ObjectModelTableType.true...column caption='campaign_duration_days.csv' datatype='table' name='[__tableau_internal_object_id__].[campaign_duration_days.csv_74692F83ED8F4FE6844C5B310A7E6480]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='campaign_duration_days.csv1' datatype='table' name='[__tableau_internal_object_id__].[campaign_duration_days.csv_BE0123D1E8864EA9BA0D6E84068AD0E3]' role='measure' type='quantitative' />
+      <column caption='Campaign Duration (Campaign Duration Days.Csv1)' datatype='integer' name='[campaign_duration (campaign_duration_days.csv1)]' role='measure' type='quantitative' />
       <column caption='campaign_duration' datatype='integer' name='[campaign_duration]' role='measure' type='quantitative' />
+      <column caption='State (Campaign Duration Days.Csv1)' datatype='string' name='[state (campaign_duration_days.csv1)]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
       <column caption='state' datatype='string' name='[state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
       <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
       <semantic-values>
@@ -1064,7 +1165,29 @@
               </relation>
             </properties>
           </object>
+          <object caption='campaign_duration_days.csv1' id='campaign_duration_days.csv_BE0123D1E8864EA9BA0D6E84068AD0E3'>
+            <properties context=''>
+              <relation connection='textscan.0qsryvn0kd36uo1d14foo05fi418' name='campaign_duration_days.csv1' table='[campaign_duration_days#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='integer' name='F1' ordinal='0' />
+                  <column datatype='integer' name='ID' ordinal='1' />
+                  <column datatype='string' name='state' ordinal='2' />
+                  <column datatype='integer' name='campaign_duration' ordinal='3' />
+                </columns>
+              </relation>
+            </properties>
+          </object>
         </objects>
+        <relationships>
+          <relationship>
+            <expression op='='>
+              <expression op='[ID]' />
+              <expression op='[ID (campaign_duration_days.csv1)]' />
+            </expression>
+            <first-end-point object-id='campaign_duration_days.csv_74692F83ED8F4FE6844C5B310A7E6480' />
+            <second-end-point object-id='campaign_duration_days.csv_BE0123D1E8864EA9BA0D6E84068AD0E3' />
+          </relationship>
+        </relationships>
       </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
     </datasource>
   </datasources>
@@ -1515,9 +1638,9 @@
             <datasource name='Parameters' />
           </datasources>
           <datasource-dependencies datasource='Parameters'>
-            <column caption='Top N' datatype='integer' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='27'>
-              <calculation class='tableau' formula='27' />
-              <range granularity='1' max='30' min='1' />
+            <column caption='Top N' datatype='integer' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='24'>
+              <calculation class='tableau' formula='24' />
+              <range granularity='1' max='50' min='1' />
             </column>
           </datasource-dependencies>
           <datasource-dependencies datasource='federated.1smwlxm14xw573196j06v1k44rwp'>
@@ -1612,34 +1735,116 @@
             <datasource name='Parameters' />
           </datasources>
           <datasource-dependencies datasource='Parameters'>
-            <column caption='Top N' datatype='integer' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='27'>
-              <calculation class='tableau' formula='27' />
-              <range granularity='1' max='30' min='1' />
+            <column caption='Top N' datatype='integer' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='24'>
+              <calculation class='tableau' formula='24' />
+              <range granularity='1' max='50' min='1' />
             </column>
           </datasource-dependencies>
           <datasource-dependencies datasource='federated.1smwlxm14xw573196j06v1k44rwp'>
+            <column caption='Backers' datatype='integer' name='[backers]' role='measure' type='quantitative' />
+            <column caption='Main Category' datatype='string' name='[main_category]' role='dimension' type='nominal' />
             <column caption='Name' datatype='string' name='[name]' role='dimension' type='nominal' />
+            <column-instance column='[main_category]' derivation='None' name='[none:main_category:nk]' pivot='key' type='nominal' />
+            <column-instance column='[name]' derivation='None' name='[none:name:nk]' pivot='key' type='nominal' />
             <column caption='Pledged' datatype='real' name='[pledged]' role='measure' type='quantitative' />
+            <column-instance column='[backers]' derivation='Sum' name='[sum:backers:qk]' pivot='key' type='quantitative' />
           </datasource-dependencies>
           <filter class='categorical' column='[federated.1smwlxm14xw573196j06v1k44rwp].[Top N by Parameter]' />
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.1smwlxm14xw573196j06v1k44rwp].[none:name:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.1smwlxm14xw573196j06v1k44rwp].[sum:backers:qk]' shelf='columns' />
+          </shelf-sorts>
           <slices>
             <column>[federated.1smwlxm14xw573196j06v1k44rwp].[Top N by Parameter]</column>
           </slices>
           <aggregation value='true' />
         </view>
-        <style />
+        <style>
+          <style-rule element='cell'>
+            <format attr='width' field='[federated.1smwlxm14xw573196j06v1k44rwp].[none:name:nk]' value='23' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='text-orientation' field='[federated.1smwlxm14xw573196j06v1k44rwp].[none:name:nk]' value='-90' />
+          </style-rule>
+        </style>
         <panes>
           <pane selection-relaxation-option='selection-relaxation-allow'>
             <view>
               <breakdown value='auto' />
             </view>
             <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1smwlxm14xw573196j06v1k44rwp].[none:main_category:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+              </style-rule>
+            </style>
           </pane>
         </panes>
-        <rows />
-        <cols />
+        <rows>[federated.1smwlxm14xw573196j06v1k44rwp].[sum:backers:qk]</rows>
+        <cols>[federated.1smwlxm14xw573196j06v1k44rwp].[none:name:nk]</cols>
       </table>
       <simple-id uuid='{0EAB39AD-5B46-48E4-AF08-096D49F75BBA}' />
+    </worksheet>
+    <worksheet name='average_goal_funding'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='ks-projects-201801' name='federated.1smwlxm14xw573196j06v1k44rwp' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1smwlxm14xw573196j06v1k44rwp'>
+            <column caption='Nb of days to reach goal' datatype='real' name='[Calculation_785596727362433027]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[deadline]- [launched]' />
+            </column>
+            <column-instance column='[Calculation_785596727362433027]' derivation='Avg' name='[avg:Calculation_785596727362433027:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[goal]' derivation='Avg' name='[avg:goal:qk]' pivot='key' type='quantitative' />
+            <column caption='Deadline' datatype='date' name='[deadline]' role='dimension' type='ordinal' />
+            <column caption='Goal' datatype='real' name='[goal]' role='measure' type='quantitative' />
+            <column caption='Launched' datatype='datetime' name='[launched]' role='dimension' type='ordinal' />
+            <column caption='Main Category' datatype='string' name='[main_category]' role='dimension' type='nominal' />
+            <column-instance column='[main_category]' derivation='None' name='[none:main_category:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.1smwlxm14xw573196j06v1k44rwp].[avg:Calculation_785596727362433027:qk]' field-type='quantitative' max='37.204575478667131' min='29.0' range-type='fixed' scope='cols' type='space' />
+            <format attr='line-pattern-only' scope='rows' value='solid' />
+            <format attr='stroke-size' scope='rows' value='0' />
+            <format attr='line-visibility' scope='rows' value='off' />
+          </style-rule>
+          <style-rule element='gridline'>
+            <format attr='line-visibility' scope='rows' value='on' />
+            <format attr='line-pattern-only' scope='rows' value='solid' />
+            <format attr='line-visibility' scope='cols' value='on' />
+            <format attr='line-pattern-only' scope='cols' value='solid' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1smwlxm14xw573196j06v1k44rwp].[none:main_category:nk]' />
+              <text column='[federated.1smwlxm14xw573196j06v1k44rwp].[none:main_category:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='shape' value=':filled/circle' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1smwlxm14xw573196j06v1k44rwp].[avg:goal:qk]</rows>
+        <cols>[federated.1smwlxm14xw573196j06v1k44rwp].[avg:Calculation_785596727362433027:qk]</cols>
+      </table>
+      <simple-id uuid='{78C59392-A160-4AD8-9724-E8F38375AE87}' />
     </worksheet>
     <worksheet name='backers_map'>
       <layout-options>
@@ -1927,6 +2132,89 @@
       </table>
       <simple-id uuid='{E1EF2C99-A38F-44EE-BCA6-56DF514EDD38}' />
     </worksheet>
+    <worksheet name='pledged_more_than_goal'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='ks-projects-201801' name='federated.1smwlxm14xw573196j06v1k44rwp' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1smwlxm14xw573196j06v1k44rwp'>
+            <column caption='Main Category' datatype='string' name='[main_category]' role='dimension' type='nominal' />
+            <column-instance column='[main_category]' derivation='None' name='[none:main_category:nk]' pivot='key' type='nominal' />
+            <column caption='Pledged' datatype='real' name='[pledged]' role='measure' type='quantitative' />
+            <column-instance column='[pledged]' derivation='Sum' name='[sum:pledged:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.1smwlxm14xw573196j06v1k44rwp].[none:main_category:nk]</rows>
+        <cols>[federated.1smwlxm14xw573196j06v1k44rwp].[sum:pledged:qk]</cols>
+      </table>
+      <simple-id uuid='{856A933F-3756-4794-9E7F-CB3363E60348}' />
+    </worksheet>
+    <worksheet name='success_failure_categories'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='ks-projects-201801' name='federated.1smwlxm14xw573196j06v1k44rwp' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1smwlxm14xw573196j06v1k44rwp'>
+            <column datatype='integer' name='[ID]' role='dimension' type='ordinal' />
+            <column-instance column='[ID]' derivation='Count' name='[cnt:ID:qk]' pivot='key' type='quantitative' />
+            <column caption='Main Category' datatype='string' name='[main_category]' role='dimension' type='nominal' />
+            <column-instance column='[main_category]' derivation='None' name='[none:main_category:nk]' pivot='key' type='nominal' />
+            <column-instance column='[state]' derivation='None' name='[none:state:nk]' pivot='key' type='nominal' />
+            <column-instance column='[ID]' derivation='Count' name='[pcto:cnt:ID:qk]' pivot='key' type='quantitative'>
+              <table-calc ordering-type='Rows' type='PctTotal' />
+            </column-instance>
+            <column aggregation='CountD' caption='State' datatype='string' name='[state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+          </datasource-dependencies>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.1smwlxm14xw573196j06v1k44rwp].[none:main_category:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.1smwlxm14xw573196j06v1k44rwp].[cnt:ID:qk]' shelf='columns' />
+          </shelf-sorts>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='text-format' field='[federated.1smwlxm14xw573196j06v1k44rwp].[pcto:cnt:ID:qk]' value='p0.0%' />
+            <format attr='width' field='[federated.1smwlxm14xw573196j06v1k44rwp].[none:main_category:nk]' value='84' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1smwlxm14xw573196j06v1k44rwp].[none:state:nk]' />
+              <text column='[federated.1smwlxm14xw573196j06v1k44rwp].[pcto:cnt:ID:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1smwlxm14xw573196j06v1k44rwp].[cnt:ID:qk]</rows>
+        <cols>[federated.1smwlxm14xw573196j06v1k44rwp].[none:main_category:nk]</cols>
+      </table>
+      <simple-id uuid='{2C6D38C5-D552-44CA-B10A-BD3D476822F7}' />
+    </worksheet>
   </worksheets>
   <dashboards>
     <dashboard name='Map'>
@@ -2019,7 +2307,7 @@
       <simple-id uuid='{25F1C43D-D836-4E64-BB8E-59CC001C9A27}' />
     </dashboard>
   </dashboards>
-  <windows source-height='48'>
+  <windows source-height='51'>
     <window class='worksheet' name='backers_map' tab-color='#4f779a'>
       <cards>
         <edge name='left'>
@@ -2345,7 +2633,36 @@
       </cards>
       <simple-id uuid='{1788828E-1E93-418C-9F66-5580500C06C0}' />
     </window>
-    <window class='worksheet' maximized='true' name='Top_50_projects_by_backers' tab-color='#17927d'>
+    <window class='worksheet' name='Top_50_projects_by_backers' tab-color='#17927d'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='300'>
+            <card mode='slider' param='[Parameters].[Parameter 1]' type='parameter' />
+            <card pane-specification-id='0' param='[federated.1smwlxm14xw573196j06v1k44rwp].[none:main_category:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{EBC6EAF6-A5AA-4EDD-BC62-501B7F7916F5}' />
+    </window>
+    <window class='worksheet' name='average_goal_funding' tab-color='#dec77b'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -2367,11 +2684,62 @@
         </edge>
         <edge name='right'>
           <strip size='160'>
-            <card mode='slider' param='[Parameters].[Parameter 1]' type='parameter' />
+            <card pane-specification-id='0' param='[federated.1smwlxm14xw573196j06v1k44rwp].[none:main_category:nk]' type='color' />
           </strip>
         </edge>
       </cards>
-      <simple-id uuid='{EBC6EAF6-A5AA-4EDD-BC62-501B7F7916F5}' />
+      <simple-id uuid='{036431F4-8771-444E-9A73-EB6BEF3EE7B0}' />
+    </window>
+    <window class='worksheet' name='success_failure_categories' tab-color='#72bcbb'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1smwlxm14xw573196j06v1k44rwp].[none:state:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{CB89BBB3-5190-4C9C-957C-32806917DA3F}' />
+    </window>
+    <window class='worksheet' maximized='true' name='pledged_more_than_goal' tab-color='#6e597f'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{B3D321BF-D69A-4275-AF06-65F91E5FA56D}' />
     </window>
   </windows>
 </workbook>

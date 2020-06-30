@@ -77,8 +77,20 @@ Top 50 projects by highest backers
   <img src="srcs/top_50_by_backers.png" alt="Top_50_by_backers/made with tableau" />  
 </p>
 
+Average days to reach Average goal funding - Category-wise
+<p align="center">
+  <img src="srcs/average_goal_days_funding.png" alt="average goal and days funding by category/made with tableau" />  
+</p>
 
+Category-wise Success/Failure
+<p align="center">
+  <img src="srcs/success_failure_categories.png" alt="Category-wise Success/Failure/made with tableau" />  
+</p>
 
+Pledged more than goal (yes/no) by category
+<p align="center">
+  <img src="srcs/pledged_more_than_goal.png" alt="pledged more than goal? YES or NO by category/made with tableau" />  
+</p>
 
 
 ## Regression Modelling
