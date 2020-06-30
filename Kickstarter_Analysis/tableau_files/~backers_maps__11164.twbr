@@ -1619,26 +1619,6 @@
       </table>
       <simple-id uuid='{2CC071AD-D8EC-41EA-979F-4C109FF9FD84}' />
     </worksheet>
-    <worksheet name='Sheet 21'>
-      <table>
-        <view>
-          <datasources />
-          <aggregation value='true' />
-        </view>
-        <style />
-        <panes>
-          <pane selection-relaxation-option='selection-relaxation-allow'>
-            <view>
-              <breakdown value='auto' />
-            </view>
-            <mark class='Automatic' />
-          </pane>
-        </panes>
-        <rows />
-        <cols />
-      </table>
-      <simple-id uuid='{592B6B45-7A6B-4EFC-8262-998397F2390A}' />
-    </worksheet>
     <worksheet name='Top 50 sub-categories'>
       <table>
         <view>
@@ -2298,13 +2278,19 @@
             <column caption='Usd Pledged' datatype='real' name='[usd pledged]' role='measure' type='quantitative' />
             <column caption='Usd Pledged Real' datatype='real' name='[usd_pledged_real]' role='measure' type='quantitative' />
           </datasource-dependencies>
-          <filter class='quantitative' column='[federated.1smwlxm14xw573196j06v1k44rwp].[none:usd pledged:qk]' included-values='non-null' />
+          <filter class='quantitative' column='[federated.1smwlxm14xw573196j06v1k44rwp].[none:usd pledged:qk]' included-values='in-range'>
+            <min>0.0</min>
+            <max>373192.0</max>
+          </filter>
           <slices>
             <column>[federated.1smwlxm14xw573196j06v1k44rwp].[none:usd pledged:qk]</column>
           </slices>
           <aggregation value='true' />
         </view>
         <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.1smwlxm14xw573196j06v1k44rwp].[none:usd_pledged_real:qk]' field-type='quantitative' max='60600.28151644898' min='-4306.8254870430155' range-type='fixed' scope='rows' type='space' />
+          </style-rule>
           <style-rule element='cell'>
             <format attr='width' field='[federated.1smwlxm14xw573196j06v1k44rwp].[none:main_category:nk]' value='82' />
           </style-rule>
@@ -2327,10 +2313,16 @@
               <breakdown value='auto' />
             </view>
             <mark class='Automatic' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
             <encodings>
               <color column='[federated.1smwlxm14xw573196j06v1k44rwp].[none:main_category:nk]' />
             </encodings>
+            <reference-line axis-column='[federated.1smwlxm14xw573196j06v1k44rwp].[none:usd_pledged_real:qk]' boxplot-mark-exclusion='false' boxplot-whisker-type='standard' enable-instant-analytics='true' formula='average' id='refline0' label-type='none' probability='95' scope='per-cell' symmetric='false' value-column='[federated.1smwlxm14xw573196j06v1k44rwp].[none:usd_pledged_real:qk]' z-order='1' />
             <style>
+              <style-rule element='mark'>
+                <format attr='mark-transparency' value='255' />
+                <format attr='size' value='0.22988949716091156' />
+              </style-rule>
               <style-rule element='pane'>
                 <format attr='minwidth' value='-1' />
                 <format attr='maxwidth' value='-1' />
@@ -2341,7 +2333,7 @@
         <rows>[federated.1smwlxm14xw573196j06v1k44rwp].[none:usd_pledged_real:qk]</rows>
         <cols>[federated.1smwlxm14xw573196j06v1k44rwp].[none:main_category:nk]</cols>
       </table>
-      <simple-id uuid='{797701CD-A030-4041-A76D-8B995387C13E}' />
+      <simple-id uuid='{B9B61614-23C5-4445-A382-17306673D0CE}' />
     </worksheet>
     <worksheet name='campaign_days_by_state'>
       <table>
@@ -2446,6 +2438,65 @@
         <cols>[federated.1smwlxm14xw573196j06v1k44rwp].[none:main_category:nk]</cols>
       </table>
       <simple-id uuid='{E1EF2C99-A38F-44EE-BCA6-56DF514EDD38}' />
+    </worksheet>
+    <worksheet name='ganttbar_funds_raised'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='ks-projects-201801' name='federated.1smwlxm14xw573196j06v1k44rwp' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1smwlxm14xw573196j06v1k44rwp'>
+            <column caption='Main Category' datatype='string' name='[main_category]' role='dimension' type='nominal' />
+            <column-instance column='[main_category]' derivation='None' name='[none:main_category:nk]' pivot='key' type='nominal' />
+            <column-instance column='[usd pledged]' derivation='None' name='[none:usd pledged:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[usd_pledged_real]' derivation='None' name='[none:usd_pledged_real:qk]' pivot='key' type='quantitative' />
+            <column caption='Usd Pledged' datatype='real' name='[usd pledged]' role='measure' type='quantitative' />
+            <column caption='Usd Pledged Real' datatype='real' name='[usd_pledged_real]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='quantitative' column='[federated.1smwlxm14xw573196j06v1k44rwp].[none:usd pledged:qk]' included-values='non-null' />
+          <slices>
+            <column>[federated.1smwlxm14xw573196j06v1k44rwp].[none:usd pledged:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='width' field='[federated.1smwlxm14xw573196j06v1k44rwp].[none:main_category:nk]' value='82' />
+          </style-rule>
+          <style-rule element='pane'>
+            <format attr='background-color' value='#ffffff' />
+            <format attr='band-color' scope='rows' value='#f5f5f5' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='band-size' scope='rows' value='1' />
+          </style-rule>
+          <style-rule element='gridline'>
+            <format attr='stroke-size' scope='rows' value='1' />
+            <format attr='line-visibility' value='on' />
+            <format attr='line-pattern-only' value='solid' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1smwlxm14xw573196j06v1k44rwp].[none:main_category:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1smwlxm14xw573196j06v1k44rwp].[none:usd_pledged_real:qk]</rows>
+        <cols>[federated.1smwlxm14xw573196j06v1k44rwp].[none:main_category:nk]</cols>
+      </table>
+      <simple-id uuid='{797701CD-A030-4041-A76D-8B995387C13E}' />
     </worksheet>
     <worksheet name='number_days_distribution'>
       <table>
@@ -3283,7 +3334,7 @@
       </cards>
       <simple-id uuid='{B8D7F51A-C5DC-4698-9A80-AE8BCA1DFA52}' />
     </window>
-    <window class='worksheet' name='boxplots_funds_raised' tab-color='#dec77b'>
+    <window class='worksheet' name='ganttbar_funds_raised' tab-color='#dec77b'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -3311,7 +3362,7 @@
       </cards>
       <simple-id uuid='{473BDEB9-BF45-45A8-BE50-08F121F7BFFC}' />
     </window>
-    <window class='worksheet' maximized='true' name='Sheet 21'>
+    <window class='worksheet' maximized='true' name='boxplots_funds_raised' tab-color='#dec77b'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -3321,18 +3372,23 @@
           </strip>
         </edge>
         <edge name='top'>
-          <strip size='31'>
+          <strip size='2147483647'>
             <card type='columns' />
           </strip>
-          <strip size='31'>
+          <strip size='2147483647'>
             <card type='rows' />
           </strip>
           <strip size='31'>
             <card type='title' />
           </strip>
         </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='1' param='[federated.1smwlxm14xw573196j06v1k44rwp].[none:main_category:nk]' type='color' />
+          </strip>
+        </edge>
       </cards>
-      <simple-id uuid='{43729A78-4653-460F-A6EF-01870674EB53}' />
+      <simple-id uuid='{BE702A7C-6C4C-4DA4-A54A-69E2379AAA5D}' />
     </window>
   </windows>
 </workbook>
