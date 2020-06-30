@@ -305,6 +305,9 @@
         </calculation>
       </column>
       <column datatype='integer' name='[ID]' role='dimension' type='ordinal' />
+      <column caption='Nb of days to reach goal (rounded)' datatype='real' name='[Nb of days to reach goal (copy)_785596727397769221]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='ROUND([deadline]- [launched])' />
+      </column>
       <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
         <calculation class='tableau' formula='1' />
       </column>
@@ -323,7 +326,9 @@
       <column caption='Usd Pledged' datatype='real' name='[usd pledged]' role='measure' type='quantitative' />
       <column caption='Usd Goal Real' datatype='real' name='[usd_goal_real]' role='measure' type='quantitative' />
       <column caption='Usd Pledged Real' datatype='real' name='[usd_pledged_real]' role='measure' type='quantitative' />
+      <column-instance column='[Calculation_785596727366152196]' derivation='None' name='[none:Calculation_785596727366152196:nk]' pivot='key' type='nominal' />
       <column-instance column='[category]' derivation='None' name='[none:category:nk]' pivot='key' type='nominal' />
+      <column-instance column='[currency]' derivation='None' name='[none:currency:nk]' pivot='key' type='nominal' />
       <column-instance column='[main_category]' derivation='None' name='[none:main_category:nk]' pivot='key' type='nominal' />
       <column-instance column='[state]' derivation='None' name='[none:state:nk]' pivot='key' type='nominal' />
       <group caption='Top N and Bottom N' delimiter=',' name='[Set 1]' name-style='unqualified'>
@@ -900,14 +905,66 @@
               <bucket>&quot;failed&quot;</bucket>
             </map>
           </encoding>
+          <encoding attr='color' field='[none:Calculation_785596727366152196:nk]' type='palette'>
+            <map to='#1f77b4'>
+              <bucket>&quot;YES&quot;</bucket>
+            </map>
+            <map to='#d62728'>
+              <bucket>&quot;NO&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:currency:nk]' palette='superfishel_stone_10_0' type='palette'>
+            <map to='#55ad89'>
+              <bucket>&quot;EUR&quot;</bucket>
+            </map>
+            <map to='#6388b4'>
+              <bucket>&quot;AUD&quot;</bucket>
+            </map>
+            <map to='#6388b4'>
+              <bucket>&quot;NZD&quot;</bucket>
+            </map>
+            <map to='#767676'>
+              <bucket>&quot;NOK&quot;</bucket>
+            </map>
+            <map to='#8cc2ca'>
+              <bucket>&quot;DKK&quot;</bucket>
+            </map>
+            <map to='#8cc2ca'>
+              <bucket>&quot;USD&quot;</bucket>
+            </map>
+            <map to='#a9b5ae'>
+              <bucket>&quot;MXN&quot;</bucket>
+            </map>
+            <map to='#baa094'>
+              <bucket>&quot;JPY&quot;</bucket>
+            </map>
+            <map to='#bb7693'>
+              <bucket>&quot;HKD&quot;</bucket>
+            </map>
+            <map to='#c3bc3f'>
+              <bucket>&quot;GBP&quot;</bucket>
+            </map>
+            <map to='#ef6f6a'>
+              <bucket>&quot;CHF&quot;</bucket>
+            </map>
+            <map to='#ef6f6a'>
+              <bucket>&quot;SGD&quot;</bucket>
+            </map>
+            <map to='#ffae34'>
+              <bucket>&quot;CAD&quot;</bucket>
+            </map>
+            <map to='#ffae34'>
+              <bucket>&quot;SEK&quot;</bucket>
+            </map>
+          </encoding>
         </style-rule>
       </style>
       <semantic-values>
         <semantic-value key='[Country].[Name]' value='&quot;France&quot;' />
       </semantic-values>
       <datasource-dependencies datasource='Parameters'>
-        <column caption='Top N' datatype='integer' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='24'>
-          <calculation class='tableau' formula='24' />
+        <column caption='Top N' datatype='integer' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='25'>
+          <calculation class='tableau' formula='25' />
           <range granularity='1' max='50' min='1' />
         </column>
         <column caption='Bottom N' datatype='integer' name='[Top N (copy)_785596727145508866]' param-domain-type='range' role='measure' type='quantitative' value='5'>
@@ -945,8 +1002,8 @@
     </datasource>
     <datasource hasconnection='false' inline='true' name='Parameters' version='18.1'>
       <aliases enabled='yes' />
-      <column caption='Top N' datatype='integer' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='24'>
-        <calculation class='tableau' formula='24' />
+      <column caption='Top N' datatype='integer' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='25'>
+        <calculation class='tableau' formula='25' />
         <range granularity='1' max='50' min='1' />
       </column>
       <column caption='Bottom N' datatype='integer' name='[Top N (copy)_785596727145508866]' param-domain-type='range' role='measure' type='quantitative' value='5'>
@@ -1559,6 +1616,26 @@
       </table>
       <simple-id uuid='{2CC071AD-D8EC-41EA-979F-4C109FF9FD84}' />
     </worksheet>
+    <worksheet name='Sheet 18'>
+      <table>
+        <view>
+          <datasources />
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{5376AABC-87AD-491B-8FDA-3EB1FFE88760}' />
+    </worksheet>
     <worksheet name='Top 50 sub-categories'>
       <table>
         <view>
@@ -1638,8 +1715,8 @@
             <datasource name='Parameters' />
           </datasources>
           <datasource-dependencies datasource='Parameters'>
-            <column caption='Top N' datatype='integer' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='24'>
-              <calculation class='tableau' formula='24' />
+            <column caption='Top N' datatype='integer' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='25'>
+              <calculation class='tableau' formula='25' />
               <range granularity='1' max='50' min='1' />
             </column>
           </datasource-dependencies>
@@ -1735,8 +1812,8 @@
             <datasource name='Parameters' />
           </datasources>
           <datasource-dependencies datasource='Parameters'>
-            <column caption='Top N' datatype='integer' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='24'>
-              <calculation class='tableau' formula='24' />
+            <column caption='Top N' datatype='integer' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='25'>
+              <calculation class='tableau' formula='25' />
               <range granularity='1' max='50' min='1' />
             </column>
           </datasource-dependencies>
@@ -1845,6 +1922,48 @@
         <cols>[federated.1smwlxm14xw573196j06v1k44rwp].[avg:Calculation_785596727362433027:qk]</cols>
       </table>
       <simple-id uuid='{78C59392-A160-4AD8-9724-E8F38375AE87}' />
+    </worksheet>
+    <worksheet name='average_successfully_pledged_currency'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='ks-projects-201801' name='federated.1smwlxm14xw573196j06v1k44rwp' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1smwlxm14xw573196j06v1k44rwp'>
+            <column-instance column='[usd pledged]' derivation='Avg' name='[avg:usd pledged:qk]' pivot='key' type='quantitative' />
+            <column caption='Currency' datatype='string' name='[currency]' role='dimension' type='nominal' />
+            <column-instance column='[currency]' derivation='None' name='[none:currency:nk]' pivot='key' type='nominal' />
+            <column-instance column='[state]' derivation='None' name='[none:state:nk]' pivot='key' type='nominal' />
+            <column aggregation='CountD' caption='State' datatype='string' name='[state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+            <column caption='Usd Pledged' datatype='real' name='[usd pledged]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1smwlxm14xw573196j06v1k44rwp].[none:state:nk]'>
+            <groupfilter function='member' level='[none:state:nk]' member='&quot;successful&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.1smwlxm14xw573196j06v1k44rwp].[none:currency:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.1smwlxm14xw573196j06v1k44rwp].[avg:usd pledged:qk]' shelf='columns' />
+          </shelf-sorts>
+          <slices>
+            <column>[federated.1smwlxm14xw573196j06v1k44rwp].[none:state:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1smwlxm14xw573196j06v1k44rwp].[none:currency:nk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.1smwlxm14xw573196j06v1k44rwp].[avg:usd pledged:qk]</rows>
+        <cols>[federated.1smwlxm14xw573196j06v1k44rwp].[none:currency:nk]</cols>
+      </table>
+      <simple-id uuid='{C5593AD2-451B-4ADB-9C4F-FF6BC3EBA4A3}' />
     </worksheet>
     <worksheet name='backers_map'>
       <layout-options>
@@ -2132,6 +2251,66 @@
       </table>
       <simple-id uuid='{E1EF2C99-A38F-44EE-BCA6-56DF514EDD38}' />
     </worksheet>
+    <worksheet name='number_days_distribution'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='ks-projects-201801' name='federated.1smwlxm14xw573196j06v1k44rwp' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1smwlxm14xw573196j06v1k44rwp'>
+            <column caption='Nb of days to reach goal' datatype='real' name='[Calculation_785596727362433027]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[deadline]- [launched]' />
+            </column>
+            <column datatype='integer' name='[ID]' role='dimension' type='ordinal' />
+            <column caption='Nb of days to reach goal (rounded)' datatype='real' name='[Nb of days to reach goal (copy)_785596727397769221]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='ROUND([deadline]- [launched])' />
+            </column>
+            <column caption='Deadline' datatype='date' name='[deadline]' role='dimension' type='ordinal' />
+            <column caption='Launched' datatype='datetime' name='[launched]' role='dimension' type='ordinal' />
+            <column-instance column='[Calculation_785596727362433027]' derivation='None' name='[none:Calculation_785596727362433027:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Nb of days to reach goal (copy)_785596727397769221]' derivation='None' name='[none:Nb of days to reach goal (copy)_785596727397769221:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Nb of days to reach goal (copy)_785596727397769221]' derivation='None' name='[none:Nb of days to reach goal (copy)_785596727397769221:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[ID]' derivation='Count' name='[pcto:cnt:ID:qk:5]' pivot='key' type='quantitative'>
+              <table-calc ordering-field='[federated.1smwlxm14xw573196j06v1k44rwp].[none:Nb of days to reach goal (copy)_785596727397769221:qk]' ordering-type='Field' type='PctTotal' />
+            </column-instance>
+          </datasource-dependencies>
+          <filter class='quantitative' column='[federated.1smwlxm14xw573196j06v1k44rwp].[none:Calculation_785596727362433027:qk]' included-values='in-range'>
+            <min>0.0050578703703703706</min>
+            <max>422.0</max>
+          </filter>
+          <slices>
+            <column>[federated.1smwlxm14xw573196j06v1k44rwp].[none:Calculation_785596727362433027:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.1smwlxm14xw573196j06v1k44rwp].[pcto:cnt:ID:qk:5]' field-type='quantitative' scale='log' scope='rows' type='space' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1smwlxm14xw573196j06v1k44rwp].[none:Nb of days to reach goal (copy)_785596727397769221:ok]' />
+              <text column='[federated.1smwlxm14xw573196j06v1k44rwp].[none:Nb of days to reach goal (copy)_785596727397769221:ok]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1smwlxm14xw573196j06v1k44rwp].[pcto:cnt:ID:qk:5]</rows>
+        <cols>[federated.1smwlxm14xw573196j06v1k44rwp].[none:Nb of days to reach goal (copy)_785596727397769221:ok]</cols>
+      </table>
+      <simple-id uuid='{6AAFA404-E12F-45C9-8842-5DDE28358E9F}' />
+    </worksheet>
     <worksheet name='pledged_more_than_goal'>
       <table>
         <view>
@@ -2139,24 +2318,56 @@
             <datasource caption='ks-projects-201801' name='federated.1smwlxm14xw573196j06v1k44rwp' />
           </datasources>
           <datasource-dependencies datasource='federated.1smwlxm14xw573196j06v1k44rwp'>
+            <column caption='pledged more than goal' datatype='string' name='[Calculation_785596727366152196]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='IF ([usd_pledged_real] &gt;= [usd_goal_real]) then &apos;YES&apos;&#13;&#10;ELSE &apos;NO&apos;&#13;&#10;END' />
+            </column>
+            <column datatype='integer' name='[ID]' role='dimension' type='ordinal' />
+            <column-instance column='[ID]' derivation='Count' name='[cnt:ID:qk]' pivot='key' type='quantitative' />
             <column caption='Main Category' datatype='string' name='[main_category]' role='dimension' type='nominal' />
+            <column-instance column='[Calculation_785596727366152196]' derivation='None' name='[none:Calculation_785596727366152196:nk]' pivot='key' type='nominal' />
             <column-instance column='[main_category]' derivation='None' name='[none:main_category:nk]' pivot='key' type='nominal' />
             <column caption='Pledged' datatype='real' name='[pledged]' role='measure' type='quantitative' />
             <column-instance column='[pledged]' derivation='Sum' name='[sum:pledged:qk]' pivot='key' type='quantitative' />
+            <column caption='Usd Goal Real' datatype='real' name='[usd_goal_real]' role='measure' type='quantitative' />
+            <column caption='Usd Pledged Real' datatype='real' name='[usd_pledged_real]' role='measure' type='quantitative' />
           </datasource-dependencies>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.1smwlxm14xw573196j06v1k44rwp].[none:main_category:nk]' direction='DESC' measure-to-sort-by='[federated.1smwlxm14xw573196j06v1k44rwp].[sum:pledged:qk]' shelf='columns' />
+          </shelf-sorts>
           <aggregation value='true' />
         </view>
-        <style />
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.1smwlxm14xw573196j06v1k44rwp].[cnt:ID:qk]' scope='rows' value='Number of projects' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='band-size' scope='cols' value='0' />
+            <format attr='band-level' scope='cols' value='1' />
+          </style-rule>
+        </style>
         <panes>
           <pane selection-relaxation-option='selection-relaxation-allow'>
             <view>
               <breakdown value='auto' />
             </view>
             <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1smwlxm14xw573196j06v1k44rwp].[none:main_category:nk]' />
+              <text column='[federated.1smwlxm14xw573196j06v1k44rwp].[cnt:ID:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='cell'>
+                <format attr='text-orientation' value='-90' />
+              </style-rule>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+            </style>
           </pane>
         </panes>
-        <rows>[federated.1smwlxm14xw573196j06v1k44rwp].[none:main_category:nk]</rows>
-        <cols>[federated.1smwlxm14xw573196j06v1k44rwp].[sum:pledged:qk]</cols>
+        <rows>[federated.1smwlxm14xw573196j06v1k44rwp].[cnt:ID:qk]</rows>
+        <cols>([federated.1smwlxm14xw573196j06v1k44rwp].[none:main_category:nk] / [federated.1smwlxm14xw573196j06v1k44rwp].[none:Calculation_785596727366152196:nk])</cols>
       </table>
       <simple-id uuid='{856A933F-3756-4794-9E7F-CB3363E60348}' />
     </worksheet>
@@ -2718,7 +2929,63 @@
       </cards>
       <simple-id uuid='{CB89BBB3-5190-4C9C-957C-32806917DA3F}' />
     </window>
-    <window class='worksheet' maximized='true' name='pledged_more_than_goal' tab-color='#6e597f'>
+    <window class='worksheet' name='pledged_more_than_goal' tab-color='#6e597f'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1smwlxm14xw573196j06v1k44rwp].[none:main_category:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{B3D321BF-D69A-4275-AF06-65F91E5FA56D}' />
+    </window>
+    <window class='worksheet' name='average_successfully_pledged_currency' tab-color='#a65200'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1smwlxm14xw573196j06v1k44rwp].[none:currency:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{0C89404A-6346-4DF6-B676-DE57E546F893}' />
+    </window>
+    <window class='worksheet' maximized='true' name='number_days_distribution' tab-color='#f66273'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -2739,7 +3006,30 @@
           </strip>
         </edge>
       </cards>
-      <simple-id uuid='{B3D321BF-D69A-4275-AF06-65F91E5FA56D}' />
+      <simple-id uuid='{F805EE0B-B267-4537-A201-7524FF03C9AE}' />
+    </window>
+    <window class='worksheet' name='Sheet 18'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{529FA07F-4705-4B37-8C68-710FE51CDA12}' />
     </window>
   </windows>
 </workbook>

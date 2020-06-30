@@ -92,6 +92,18 @@ Pledged more than goal (yes/no) by category
   <img src="srcs/pledged_more_than_goal.png" alt="pledged more than goal? YES or NO by category/made with tableau" />  
 </p>
 
+Average successfully Pledged vs Currency (USD equivalent) 
+<p align="center">
+  <img src="srcs/average_successfully_pledged_currency.png" alt="Average successfully Pledged vs Currency (USD equivalent) /made with tableau" />  
+</p>
+
+Number of days distribution
+- removed 1 outlier that lasted 16.000 days
+  <img src="srcs/number_days_distribution.png" alt="Distribution of days /made with tableau" />  
+</p>
+
+
+
 
 ## Regression Modelling
 
