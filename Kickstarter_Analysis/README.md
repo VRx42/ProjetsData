@@ -99,9 +99,14 @@ Average successfully Pledged vs Currency (USD equivalent)
 
 Number of days distribution
 - removed 1 outlier that lasted 16.000 days
+<p align="center">
   <img src="srcs/number_days_distribution.png" alt="Distribution of days /made with tableau" />  
 </p>
 
+Average funds raised per backer in different categories
+<p align="center">
+  <img src="srcs/avg_pledged_by_backers.png" alt="Average funds raised per backer in different categories /made with tableau" />  
+</p>
 
 
 

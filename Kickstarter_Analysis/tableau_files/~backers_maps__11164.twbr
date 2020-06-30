@@ -299,6 +299,9 @@
       <column caption='pledged more than goal' datatype='string' name='[Calculation_785596727366152196]' role='dimension' type='nominal'>
         <calculation class='tableau' formula='IF ([usd_pledged_real] &gt;= [usd_goal_real]) then &apos;YES&apos;&#13;&#10;ELSE &apos;NO&apos;&#13;&#10;END' />
       </column>
+      <column caption='avg_pledged by backer' datatype='real' name='[Calculation_785596727403225094]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='[pledged]/[backers]' />
+      </column>
       <column caption='Rank' datatype='integer' name='[Calculation_815714549250977792]' role='measure' type='ordinal'>
         <calculation class='tableau' formula='INDEX()'>
           <table-calc ordering-type='Rows' />
@@ -1616,26 +1619,6 @@
       </table>
       <simple-id uuid='{2CC071AD-D8EC-41EA-979F-4C109FF9FD84}' />
     </worksheet>
-    <worksheet name='Sheet 18'>
-      <table>
-        <view>
-          <datasources />
-          <aggregation value='true' />
-        </view>
-        <style />
-        <panes>
-          <pane selection-relaxation-option='selection-relaxation-allow'>
-            <view>
-              <breakdown value='auto' />
-            </view>
-            <mark class='Automatic' />
-          </pane>
-        </panes>
-        <rows />
-        <cols />
-      </table>
-      <simple-id uuid='{5376AABC-87AD-491B-8FDA-3EB1FFE88760}' />
-    </worksheet>
     <worksheet name='Top 50 sub-categories'>
       <table>
         <view>
@@ -1965,6 +1948,65 @@
       </table>
       <simple-id uuid='{C5593AD2-451B-4ADB-9C4F-FF6BC3EBA4A3}' />
     </worksheet>
+    <worksheet name='avg_pledged_by_backers'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='ks-projects-201801' name='federated.1smwlxm14xw573196j06v1k44rwp' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1smwlxm14xw573196j06v1k44rwp'>
+            <column-instance column='[pledged]' derivation='Avg' name='[avg:pledged:qk]' pivot='key' type='quantitative' />
+            <column caption='Main Category' datatype='string' name='[main_category]' role='dimension' type='nominal' />
+            <column-instance column='[main_category]' derivation='None' name='[none:main_category:nk]' pivot='key' type='nominal' />
+            <column caption='Pledged' datatype='real' name='[pledged]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.1smwlxm14xw573196j06v1k44rwp].[none:main_category:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.1smwlxm14xw573196j06v1k44rwp].[avg:pledged:qk]' shelf='columns' />
+          </shelf-sorts>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.1smwlxm14xw573196j06v1k44rwp].[avg:pledged:qk]' type='custom-interpolated'>
+              <color-palette custom='true' name='' type='ordered-sequential'>
+                <color>#cfcfcf</color>
+                <color>#b9beca</color>
+                <color>#a4aec5</color>
+                <color>#909ec0</color>
+                <color>#7c8fbb</color>
+                <color>#6a81b6</color>
+                <color>#5873b1</color>
+                <color>#4766ac</color>
+                <color>#3759a7</color>
+                <color>#284da2</color>
+                <color>#1a429e</color>
+              </color-palette>
+            </encoding>
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1smwlxm14xw573196j06v1k44rwp].[avg:pledged:qk]' />
+              <text column='[federated.1smwlxm14xw573196j06v1k44rwp].[avg:pledged:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols>[federated.1smwlxm14xw573196j06v1k44rwp].[none:main_category:nk]</cols>
+      </table>
+      <simple-id uuid='{5376AABC-87AD-491B-8FDA-3EB1FFE88760}' />
+    </worksheet>
     <worksheet name='backers_map'>
       <layout-options>
         <title>
@@ -2287,6 +2329,23 @@
           <style-rule element='axis'>
             <encoding attr='space' class='0' field='[federated.1smwlxm14xw573196j06v1k44rwp].[pcto:cnt:ID:qk:5]' field-type='quantitative' scale='log' scope='rows' type='space' />
           </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.1smwlxm14xw573196j06v1k44rwp].[pcto:cnt:ID:qk:5]' type='custom-interpolated'>
+              <color-palette custom='true' name='' type='ordered-sequential'>
+                <color>#cfcfcf</color>
+                <color>#b3b1c4</color>
+                <color>#9996b9</color>
+                <color>#827dae</color>
+                <color>#6c66a3</color>
+                <color>#575198</color>
+                <color>#453e8d</color>
+                <color>#352d82</color>
+                <color>#261e77</color>
+                <color>#19116c</color>
+                <color>#0f0762</color>
+              </color-palette>
+            </encoding>
+          </style-rule>
         </style>
         <panes>
           <pane selection-relaxation-option='selection-relaxation-allow'>
@@ -2295,7 +2354,7 @@
             </view>
             <mark class='Automatic' />
             <encodings>
-              <color column='[federated.1smwlxm14xw573196j06v1k44rwp].[none:Nb of days to reach goal (copy)_785596727397769221:ok]' />
+              <color column='[federated.1smwlxm14xw573196j06v1k44rwp].[pcto:cnt:ID:qk:5]' />
               <text column='[federated.1smwlxm14xw573196j06v1k44rwp].[none:Nb of days to reach goal (copy)_785596727397769221:ok]' />
             </encodings>
             <style>
@@ -2985,7 +3044,7 @@
       </cards>
       <simple-id uuid='{0C89404A-6346-4DF6-B676-DE57E546F893}' />
     </window>
-    <window class='worksheet' maximized='true' name='number_days_distribution' tab-color='#f66273'>
+    <window class='worksheet' name='number_days_distribution' tab-color='#f66273'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -3003,12 +3062,17 @@
           </strip>
           <strip size='31'>
             <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1smwlxm14xw573196j06v1k44rwp].[pcto:cnt:ID:qk:5]' type='color' />
           </strip>
         </edge>
       </cards>
       <simple-id uuid='{F805EE0B-B267-4537-A201-7524FF03C9AE}' />
     </window>
-    <window class='worksheet' name='Sheet 18'>
+    <window class='worksheet' maximized='true' name='avg_pledged_by_backers'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -3026,6 +3090,11 @@
           </strip>
           <strip size='31'>
             <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1smwlxm14xw573196j06v1k44rwp].[avg:pledged:qk]' type='color' />
           </strip>
         </edge>
       </cards>
