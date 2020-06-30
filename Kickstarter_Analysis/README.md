@@ -74,7 +74,7 @@ Top 15 projects
 
 Top 50 projects by highest backers
 <p align="center">
-  <img src="srcs/top_50_by_backers.png" alt="Top_50_by_backers/made with tableau" />  
+  <img src="srcs/top_50_by_backers.png" alt="top_50_by_backers/made with tableau" />  
 </p>
 
 Average days to reach Average goal funding - Category-wise
