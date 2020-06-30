@@ -123,6 +123,12 @@ Boxplot of funds raised (magnified), category-wise
   <img src="srcs/boxplots_funds_raised.png" alt="/made with tableau" />  
 </p>
 
+Success rate by state and category
+<p align="center">
+  <img src="srcs/success_rate_category.png" alt="/made with tableau" />  
+</p>
+
+
 
 ## Regression Modelling
 

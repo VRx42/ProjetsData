@@ -302,6 +302,9 @@
       <column caption='avg_pledged by backer' datatype='real' name='[Calculation_785596727403225094]' role='measure' type='quantitative'>
         <calculation class='tableau' formula='[pledged]/[backers]' />
       </column>
+      <column caption='Percent of total' datatype='real' name='[Calculation_785596727431340043]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='{FIXED [state], [main_category] : SUM([Number of Records])}/{FIXED [main_category] : SUM([Number of Records])}' />
+      </column>
       <column caption='Rank' datatype='integer' name='[Calculation_815714549250977792]' role='measure' type='ordinal'>
         <calculation class='tableau' formula='INDEX()'>
           <table-calc ordering-type='Rows' />
@@ -2289,7 +2292,7 @@
         </view>
         <style>
           <style-rule element='axis'>
-            <encoding attr='space' class='0' field='[federated.1smwlxm14xw573196j06v1k44rwp].[none:usd_pledged_real:qk]' field-type='quantitative' max='60600.28151644898' min='-4306.8254870430155' range-type='fixed' scope='rows' type='space' />
+            <encoding attr='space' class='0' field='[federated.1smwlxm14xw573196j06v1k44rwp].[none:usd_pledged_real:qk]' field-type='quantitative' max='56947.501691446087' min='-2058.9609793489335' range-type='fixed' scope='rows' type='space' />
           </style-rule>
           <style-rule element='cell'>
             <format attr='width' field='[federated.1smwlxm14xw573196j06v1k44rwp].[none:main_category:nk]' value='82' />
@@ -2689,6 +2692,58 @@
         <cols>[federated.1smwlxm14xw573196j06v1k44rwp].[none:main_category:nk]</cols>
       </table>
       <simple-id uuid='{2C6D38C5-D552-44CA-B10A-BD3D476822F7}' />
+    </worksheet>
+    <worksheet name='success_rate_category'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='ks-projects-201801' name='federated.1smwlxm14xw573196j06v1k44rwp' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1smwlxm14xw573196j06v1k44rwp'>
+            <column caption='Percent of total' datatype='real' name='[Calculation_785596727431340043]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='{FIXED [state], [main_category] : SUM([Number of Records])}/{FIXED [main_category] : SUM([Number of Records])}' />
+            </column>
+            <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+              <calculation class='tableau' formula='1' />
+            </column>
+            <column caption='Main Category' datatype='string' name='[main_category]' role='dimension' type='nominal' />
+            <column-instance column='[main_category]' derivation='None' name='[none:main_category:nk]' pivot='key' type='nominal' />
+            <column-instance column='[state]' derivation='None' name='[none:state:nk]' pivot='key' type='nominal' />
+            <column aggregation='CountD' caption='State' datatype='string' name='[state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+            <column-instance column='[Calculation_785596727431340043]' derivation='Sum' name='[sum:Calculation_785596727431340043:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Number of Records]' derivation='Sum' name='[sum:Number of Records:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.1smwlxm14xw573196j06v1k44rwp].[none:main_category:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.1smwlxm14xw573196j06v1k44rwp].[sum:Number of Records:qk]' shelf='columns' />
+          </shelf-sorts>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1smwlxm14xw573196j06v1k44rwp].[none:state:nk]' />
+              <text column='[federated.1smwlxm14xw573196j06v1k44rwp].[sum:Calculation_785596727431340043:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='cell'>
+                <format attr='text-orientation' value='0' />
+              </style-rule>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1smwlxm14xw573196j06v1k44rwp].[sum:Calculation_785596727431340043:qk]</rows>
+        <cols>[federated.1smwlxm14xw573196j06v1k44rwp].[none:main_category:nk]</cols>
+      </table>
+      <simple-id uuid='{694E49D4-EE6B-428E-928D-F2E572FD14AB}' />
     </worksheet>
   </worksheets>
   <dashboards>
@@ -3362,7 +3417,7 @@
       </cards>
       <simple-id uuid='{473BDEB9-BF45-45A8-BE50-08F121F7BFFC}' />
     </window>
-    <window class='worksheet' maximized='true' name='boxplots_funds_raised' tab-color='#dec77b'>
+    <window class='worksheet' name='boxplots_funds_raised' tab-color='#dec77b'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -3389,6 +3444,34 @@
         </edge>
       </cards>
       <simple-id uuid='{BE702A7C-6C4C-4DA4-A54A-69E2379AAA5D}' />
+    </window>
+    <window class='worksheet' maximized='true' name='success_rate_category'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='2' param='[federated.1smwlxm14xw573196j06v1k44rwp].[none:state:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{45A3ED7D-92DA-4CB8-B78F-C8684A04D2C6}' />
     </window>
   </windows>
 </workbook>
