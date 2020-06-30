@@ -1619,6 +1619,26 @@
       </table>
       <simple-id uuid='{2CC071AD-D8EC-41EA-979F-4C109FF9FD84}' />
     </worksheet>
+    <worksheet name='Sheet 21'>
+      <table>
+        <view>
+          <datasources />
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{592B6B45-7A6B-4EFC-8262-998397F2390A}' />
+    </worksheet>
     <worksheet name='Top 50 sub-categories'>
       <table>
         <view>
@@ -3263,7 +3283,7 @@
       </cards>
       <simple-id uuid='{B8D7F51A-C5DC-4698-9A80-AE8BCA1DFA52}' />
     </window>
-    <window class='worksheet' maximized='true' name='boxplots_funds_raised'>
+    <window class='worksheet' name='boxplots_funds_raised' tab-color='#dec77b'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -3290,6 +3310,29 @@
         </edge>
       </cards>
       <simple-id uuid='{473BDEB9-BF45-45A8-BE50-08F121F7BFFC}' />
+    </window>
+    <window class='worksheet' maximized='true' name='Sheet 21'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='31'>
+            <card type='columns' />
+          </strip>
+          <strip size='31'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{43729A78-4653-460F-A6EF-01870674EB53}' />
     </window>
   </windows>
 </workbook>

@@ -115,7 +115,7 @@ Average Backers v Average Goal for Successful/failed/cancelled campaigns
 
 Gantt bar, category-wise
 <p align="center">
-  <img src="srcs/boxplots_funds_raised.png" alt="/made with tableau" />  
+  <img src="srcs/ganttbar_funds_raised.png" alt="/made with tableau" />  
 </p>
 
 
