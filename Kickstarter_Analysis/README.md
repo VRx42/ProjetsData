@@ -108,7 +108,10 @@ Average funds raised per backer in different categories
   <img src="srcs/avg_pledged_by_backers.png" alt="Average funds raised per backer in different categories /made with tableau" />  
 </p>
 
-
+Average Backers v Average Goal for Successful/failed/cancelled campaigns
+<p align="center">
+  <img src="srcs/avg_backers_goal_state.png" alt="/made with tableau" />  
+</p>
 
 ## Regression Modelling
 
