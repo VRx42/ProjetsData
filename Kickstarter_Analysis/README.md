@@ -113,6 +113,13 @@ Average Backers v Average Goal for Successful/failed/cancelled campaigns
   <img src="srcs/avg_backers_goal_state.png" alt="/made with tableau" />  
 </p>
 
+Gantt bar, category-wise
+<p align="center">
+  <img src="srcs/boxplots_funds_raised.png" alt="/made with tableau" />  
+</p>
+
+
+
 ## Regression Modelling
 
 Coming...
