@@ -128,6 +128,10 @@ Success rate by state and category
   <img src="srcs/success_rate_category.png" alt="/made with tableau" />  
 </p>
 
+Distribution of kickstarter fund seekers, year-wise
+<p align="center">
+  <img src="srcs/.png" alt="/made with tableau" />  
+</p>
 
 
 ## Regression Modelling

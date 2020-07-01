@@ -305,6 +305,9 @@
       <column caption='Percent of total' datatype='real' name='[Calculation_785596727431340043]' role='measure' type='quantitative'>
         <calculation class='tableau' formula='{FIXED [state], [main_category] : SUM([Number of Records])}/{FIXED [main_category] : SUM([Number of Records])}' />
       </column>
+      <column caption='total % by year' datatype='real' name='[Calculation_785596727441612812]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='{ FIXED [main_category], [launched]: SUM([Number of Records])}/{ FIXED [launched]:SUM([Number of Records])}' />
+      </column>
       <column caption='Rank' datatype='integer' name='[Calculation_815714549250977792]' role='measure' type='ordinal'>
         <calculation class='tableau' formula='INDEX()'>
           <table-calc ordering-type='Rows' />
@@ -2442,6 +2445,47 @@
       </table>
       <simple-id uuid='{E1EF2C99-A38F-44EE-BCA6-56DF514EDD38}' />
     </worksheet>
+    <worksheet name='distribution_fund_year'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='ks-projects-201801' name='federated.1smwlxm14xw573196j06v1k44rwp' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1smwlxm14xw573196j06v1k44rwp'>
+            <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+              <calculation class='tableau' formula='1' />
+            </column>
+            <column caption='Launched' datatype='datetime' name='[launched]' role='dimension' type='ordinal' />
+            <column caption='Main Category' datatype='string' name='[main_category]' role='dimension' type='nominal' />
+            <column-instance column='[main_category]' derivation='None' name='[none:main_category:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Number of Records]' derivation='Sum' name='[sum:Number of Records:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[launched]' derivation='Year' name='[yr:launched:ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[federated.1smwlxm14xw573196j06v1k44rwp].[none:main_category:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1smwlxm14xw573196j06v1k44rwp].[sum:Number of Records:qk]</rows>
+        <cols>[federated.1smwlxm14xw573196j06v1k44rwp].[yr:launched:ok]</cols>
+      </table>
+      <simple-id uuid='{FE4147A3-8ADC-4DC5-A6A8-BEBAAE9A798B}' />
+    </worksheet>
     <worksheet name='ganttbar_funds_raised'>
       <table>
         <view>
@@ -2718,7 +2762,12 @@
           </shelf-sorts>
           <aggregation value='true' />
         </view>
-        <style />
+        <style>
+          <style-rule element='cell'>
+            <format attr='text-format' field='[federated.1smwlxm14xw573196j06v1k44rwp].[sum:Calculation_785596727431340043:qk]' value='p0.00%' />
+            <format attr='width' field='[federated.1smwlxm14xw573196j06v1k44rwp].[none:main_category:nk]' value='80' />
+          </style-rule>
+        </style>
         <panes>
           <pane id='2' selection-relaxation-option='selection-relaxation-allow'>
             <view>
@@ -2736,6 +2785,10 @@
               <style-rule element='mark'>
                 <format attr='mark-labels-cull' value='true' />
                 <format attr='mark-labels-show' value='true' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
               </style-rule>
             </style>
           </pane>
@@ -3445,7 +3498,7 @@
       </cards>
       <simple-id uuid='{BE702A7C-6C4C-4DA4-A54A-69E2379AAA5D}' />
     </window>
-    <window class='worksheet' maximized='true' name='success_rate_category'>
+    <window class='worksheet' name='success_rate_category' tab-color='#4f779a'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -3472,6 +3525,34 @@
         </edge>
       </cards>
       <simple-id uuid='{45A3ED7D-92DA-4CB8-B78F-C8684A04D2C6}' />
+    </window>
+    <window class='worksheet' maximized='true' name='distribution_fund_year' tab-color='#72bcbb'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1smwlxm14xw573196j06v1k44rwp].[none:main_category:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{796DCF4C-16F8-4681-B802-72F8F0FFB8A8}' />
     </window>
   </windows>
 </workbook>
